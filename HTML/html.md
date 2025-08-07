@@ -21,12 +21,13 @@
   ``` 예) <div>
         <h1>~</h1>
         ...
-      </div> ```
+      </div>
+  ```
 
 - 다른 태그를 포함하는 태그는 레이아웃 설정 시 사용됨
   : header, main, section, footer, div 등...
 - 다른 레벨 형식으로 수정 시 display 속성을 이용함 <br>
-  예) <h1 style="display:inline;">인라인 레벨로 변경</h1>
+  ```예) <h1 style="display:inline;">인라인 레벨로 변경</h1>```
 - style 속성으로 사이즈를 변경할 수 있다!!!
 
 ## 4. 인라인 레벨 - 한문자로 인식
@@ -34,9 +35,9 @@
 - 컨텐츠 내용 크기만 적용 : inline
 - span, button, a, ...
 - 인라인 레벨 태그는 인라인 레벨 태그만 일부 포함 가능 <br>
-  예) <span> <a href="">다음</a> </span>
+  ```예) <span> <a href="">다음</a> </span>```
 - 다른 레벨 형식으로 수정 시 display 속성을 이용함 <br>
-  예) <span style="display:block;">블록 레벨로 변경</span>
+  ```예) <span style="display:block;">블록 레벨로 변경</span>```
 - style 속성으로 사이즈, 여백을 변경할 수 없다!!! => 블록, 인라인 블록으로 변경
 
 ## 5. 인라인-블록 레벨
@@ -47,14 +48,14 @@
 ## 6. 제목 - heading tag 
 - 출력되는 글씨 크기 순서는 h6< ~ <h1
 - block level
-- <h1> ~ </h1>
-- <h2> ~ </h2>
-- <h3> ~ </h3>
-- <h4> ~ </h4>
-- <h5> ~ </h5>
-- <h6> ~ </h6>
+``` <h1> ~ </h1>
+ <h2> ~ </h2>
+ <h3> ~ </h3>
+ <h4> ~ </h4>
+ <h5> ~ </h5>
+ <h6> ~ </h6>```
 
-## 7. 문단 - paragraph : <p>~</p>
+## 7. ```문단 - paragraph : <p>~</p>```
 - 문단을 구성할 때 사용하는 태그
 - 인라인 레벨 태그 포함 가능, div, heading.. 태그는 포함 불가능
 
