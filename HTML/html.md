@@ -18,10 +18,11 @@
 - 브라우저 전체 크기(width 기준, 100%) : block
 - heading tag(h1~h6), div, p 태그 등..
 - 블록 레벨은 다른 태그를 포함할 수 있다. 일부 태그(div, p ..) <br>
-  예) <div>
+  ``` 예) <div>
         <h1>~</h1>
         ...
-      </div>
+      </div> ```
+
 - 다른 태그를 포함하는 태그는 레이아웃 설정 시 사용됨
   : header, main, section, footer, div 등...
 - 다른 레벨 형식으로 수정 시 display 속성을 이용함 <br>
