@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desc Selector</title>
+    <style>
+        #p h1{  /* 태그끼리 : body h1, class 껴서 : .p h1, id 껴서 : #p h1 */
+            color: navy;
+        }
+        /* div 크기 300px, 배경색 yellow */
+        #p div{
+            width: 300px;
+            background-color: yellow;
+        }
+        #p a{     /* body#p 태그에 포함된 모든 자손 태그, body div ul li a로 해도 됨 */
+            color: red;
+        }
+    </style>
+</head>
+<body id="p">
+    <h1>Descendant Selector</h1>
+    <div>
+        <h3>sub title</h3>
+        <ul>
+            <li class="li1">
+                <a href="">네이버</a>
+            </li>
+        </ul>
+        <ol>
+            <li class="li1">
+                <a href="">구글</a>
+            </li>
+        </ol>
+    </div>
+
+</body>
+</html>
