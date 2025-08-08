@@ -7,7 +7,7 @@
 - Internal 방식 : HTML 파일의 head 태그에 페이지에서 호출되는 style 속성 정리
 - External 방식 : style 속성을 별도의 파일로 생성하여 호출
 
-## 3. Internal, External 방식의 문법
+## 3. Selector(선택자) - Internal, External 에서 사용됨
 - 형식 : 선택자(Selector) {프로퍼티(Property) : 값(Value);}
 - selector 종류 : HTML 태그, Class(.), Id(#)
 - All selector (universal selector) : * - body 안의 모든 태그들을 선택, 전체 폰트 타입, 레이아웃 사이즈, 여백 조정..
