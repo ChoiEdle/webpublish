@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Align</title>
+    <style>
+        p {
+            background-color: aquamarine;
+        }
+        span {
+            background-color: tomato;
+            text-align: center;
+            text-transform: uppercase;
+        }
+        .left {
+            text-align: left;
+        }
+        .center {
+            text-align: center;
+        }
+        .right {
+            text-align: right;
+        }
+        .justify{
+            text-align: justify;
+            width: 50%;
+            /* height: 200px; */
+            background-color: aqua;
+            line-height: 50px;
+            text-transform: lowercase;
+        }
+        .letter {
+            width: 700px;
+            border: 1px solid blue;
+            letter-spacing: 5px;
+            text-indent: 100px;
+            text-transform: capitalize;
+        }
+        .word {
+            width: 700px;
+            border: 1px solid green;
+            word-spacing: 15px;
+            text-indent: -20px;
+        }
+
+        .test {
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Text Align</h1>
+    <span>inline level - span</span><br>
+    <p class="left">Text Align - left</p>
+    <p class="center">Text Align - center <span>Add span</span></p>
+    <p class="right">Text Align - right</p>
+    <p class="justify">
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
+        Sed incidunt reprehenderit in eos, laborum corrupti expedita. 
+        Quisquam, reprehenderit iusto fugit recusandae rerum quas, laudantium aliquam provident nihil inventore possimus similique!
+    </p>
+    
+    <p class="letter">
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sed incidunt reprehenderit in eos, laborum corrupti expedita. Quisquam, reprehenderit iusto fugit recusandae rerum quas, laudantium aliquam provident nihil inventore possimus similique!
+    </p>
+    <p class="word">
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sed incidunt reprehenderit in eos, laborum corrupti expedita. Quisquam, reprehenderit iusto fugit recusandae rerum quas, laudantium aliquam provident nihil inventore possimus similique!
+    </p>
+
+    <br><br><br>
+    <p class="test">
+        <span>test</span>
+    </p>
+</body>
+</html>
