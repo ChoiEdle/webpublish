@@ -4,324 +4,289 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Judy's Portfolio</title>
-    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="css/self.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
-    <!-- <style>
-        * {
-            box-sizing: border-box;
-        }
-        header {
-            background-color: black;
-            /* border: 1px solid red; */
-            width: 1400px;
-            margin: auto;
-            display: flex;
-            justify-content: space-between;
-        }
-        header ul {
-            /* border: 1px solid black; */
-            width: 450px;
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-        }
-        header ul li {
-            /* border: 1px solid blue; */
-            padding: 0;
-            margin: 10px;
-
-        }
-        header ul li a {
-            color: white;
-            text-decoration: none;
-        }
-        .header-logo{
-            /* border: 1px solid yellow; */
-            width: 100px;
-            display: flex;
-            flex-direction: row;
-            gap: 10px;
-        }
-        .header-logo img {
-            width: 50px;
-            height: 50px;
-        }
-        .header-logo-title {
-            color: white;
-        }
-
-        main{
-            width: 1400px;
-            margin: auto;
-        }
-        /* home */
-        #home {
-            /* border: 1px solid yellow; */
-            width: 1400px;
-            background-color: black;
-            text-align: center;
-        }
-        #home img {
-            border: 1px solid black;
-        }
-        
-    </style> -->
 </head>
 <body>
-    <header class="header">
-        <div class="header-logo">
-            <img class="header-logo-img" src="images/favicon.ico" alt="header logo">
-            <h1 class="header-logo-title">Judy</h1>
-        </div>
-        <nav>
-            <ul class="header-menu">
-                <li>
-                    <a href="#home" class="header-menu-item active">Home</a>
-                </li>
-                <li>
-                    <a href="#about" class="header-menu-item">About</a>
-                </li>
-                <li>
-                    <a href="#skill" class="header-menu-item">Skill</a>
-                </li>
-                <li>
-                    <a href="#work" class="header-menu-item">My work</a>
-                </li>
-                <li>
-                    <a href="#testimonial" class="header-menu-item">Testimonial</a>
-                </li>
-                <li>
-                    <a href="#contact" class="header-menu-item">Contact</a>
-                </li>
-            </ul>
-        </nav>
+    <header>
+        <section class="header-menu">
+            <div class="menu-left">
+                <img class="menu-img" src="images/favicon.ico" alt="logo">
+                <p class="left-title">Judy</p>
+            </div>
+            <nav>
+                <ul class="menu-right">
+                    <li class="menu-li">
+                        <a class="menu-item" href="#home">Home</a>
+                    </li>
+                    <li class="menu-li">
+                        <a class="menu-item" href="#about">About</a>
+                    </li>
+                    <li class="menu-li">
+                        <a class="menu-item" href="#skill">Skill</a>
+                    </li>
+                    <li class="menu-li">
+                        <a class="menu-item" href="#work">My work</a>
+                    </li>
+                    <li class="menu-li">
+                        <a class="menu-item" href="#testimonial">Testimonial</a>
+                    </li>
+                    <li class="menu-li">
+                        <a class="menu-item" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </nav>
+        </section>
     </header>
     <main>
         <section id="home">
-            <img class="home-avatar" src="images/favicon.ico" alt="photo">
-            <h2 class="home-title">
-                Hello <br> 
+            <img class="home-img" src="images/favicon.ico" alt="profile">
+            <p class="home-title">
+                Hello <br>
                 I'm <strong class="home-title strong">Junior Developer</strong>, Judy
-            </h2>
-            <p class="home-description">
-                A software engineer currently residing in Seoul, South Korea
             </p>
-            <a class="home-contact" href="">Contact Me</a>
+            <p class="description">A software engineer currently residing in Seoul, South Korea</p>
+            <button class="home-button">
+                Contact Me
+            </button>
         </section>
-        <section id="about" class="section container">
+        <section id="about">
             <h2 class="title">About me</h2>
             <p class="description">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
-                Impedit quos tenetur fugiat velit beatae itaque error totam quam? 
-                Quia placeat fuga alias a obcaecati. 
-                Culpa at possimus consequatur eum libero!
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                Sunt voluptas nostrum ducimus dolore vel! Voluptatem excepturi neque consequuntur beatae placeat mollitia iure sint minima, 
+                quibusdam corporis? Culpa debitis unde est?
             </p>
             <ul class="majors">
                 <li class="major">
                     <i class="fa-brands fa-html5 major-icon"></i>
-                    <p>
-                        Front-end <br>
-                    </p>
-                    <p>
-                        HTML, CSS, JavaScript, TypeScript, React, WebAPIs
-                    </p>
+                    <p>Front-end</p><br>
+                    <p>HTML, CSS, JavaScript, TypeScript, React, WebAPIs</p>
                 </li>
                 <li class="major">
                     <i class="fa-solid fa-mobile major-icon"></i>
-                    <p>
-                        Mobile <br>
-                    </p>
-                    <p>
-                        Android Studio, React Native, iOS, Swift, Java, Kotlin
-                    </p>
+                    <p>Mobile</p><br>
+                    <p>Android Studio, React Native, iOS, Swift, Java, Kotlin</p>
                 </li>
                 <li class="major">
                     <i class="fa-solid fa-server major-icon"></i>
-                    <p>
-                        Back-end <br>
-                    </p>
-                    <p>
-                        Java, JavaScript, Go, Kotlin, Spring, Spring Boot
-                    </p>
+                    <p>Back-end</p><br>
+                    <p>Java, JavaScript, Go, Kotlin, Spring, Spring Boot</p>
                 </li>
             </ul>
             <ul class="jobs">
                 <li class="job">
-                    <img src="images/jobs/google.png" alt="google">
-                    <div>
-                        <p class="job-name">Google as Junior Software Engineer</p>
-                        <p class="job-period">2019 Oct - Until now</p>
-                    </div>
+                    <img class="job-img" src="images/jobs/google.png" alt="">
+                    <p class="job-text">Google as Junior Software Engineer <br> 2019 Oct - Until now</p>
                 </li>
                 <li class="job">
-                    <img src="images/jobs/samsung.png" alt="sansung">
-                    <div>
-                        <p class="job-name">Samsung as Junior Software Engineer</p>
-                        <p class="job-period">2010 Oct - 2019 Oct</p>
+                    <img class="job-img" src="images/jobs/samsung.png" alt="">
+                    <p class="job-text">Samsung as Junior Software Engineer <br> 2010 Oct - 2019 Oct</p>
+                </li>
+            </ul>
+
+        </section>
+        <div class="skill-background">
+            <section id="skill">
+                <h2 class="title">My Skills</h2>
+                <p class="description">Skills & Attributes</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic, quam voluptatem? Fugit consequatur exercitationem sunt ducimus saepe praesentium culpa labore vel, delectus adipisci ipsam architecto dolorem autem molestias harum facilis!</p>
+                <div class="skills">
+                    <article class="coding">
+                        <h3 class="skill-title">Coding Skills</h3>
+                        <ul>
+                            <li class="bar">
+                                <div class="bar-title">
+                                    <span>HTML</span>
+                                    <span>98%</span>
+                                </div>
+                                <div class="bar-bg"><div class="bar-value" style="width: 98%;"></div></div>
+                            </li>
+                            <li class="bar">
+                                <div class="bar-title">
+                                    <span>CSS</span>
+                                    <span>90%</span>
+                                </div>
+                                <div class="bar-bg"><div class="bar-value" style="width: 90%;"></div></div>
+                            </li>
+                            <li class="bar">
+                                <div class="bar-title">
+                                    <span>JavaScript</span>
+                                    <span>90%</span>
+                                </div>
+                                <div class="bar-bg"><div class="bar-value" style="width: 90%;"></div></div>
+                            </li>
+                            <li class="bar">
+                                <div class="bar-title">
+                                    <span>TypeScript</span>
+                                    <span>85%</span>
+                                </div>
+                                <div class="bar-bg"><div class="bar-value" style="width: 85%;"></div></div>
+                            </li>
+                            <li class="bar">
+                                <div class="bar-title">
+                                    <span>React</span>
+                                    <span>79%</span>
+                                </div>
+                                <div class="bar-bg"><div class="bar-value" style="width: 79%;"></div></div>
+                            </li>
+                            <li class="bar">
+                                <div class="bar-title">
+                                    <span>NodeJS</span>
+                                    <span>68%</span>
+                                </div>
+                                <div class="bar-bg"><div class="bar-value" style="width: 68%;"></div></div>
+                            </li>
+                        </ul>
+                    </article>
+                    <article class="tools">
+                        <h3 class="skill-title">Tools</h3>
+                        <ul>
+                            <li>Visual Studio Code</li>
+                            <li>IntelliJ</li>
+                            <li>Android Studio</li>
+                            <li>Eclips</li>
+                            <li>MySQL Workbench</li>
+                        </ul>
+                    </article>
+                    <article class="etc">
+                        <h3 class="skill-title">Etc</h3>
+                        <ul>
+                            <li>Git</li>
+                            <li>Scrum Master</li>
+                            <li>SVN</li>
+                        </ul>
+                    </article>
+                </div>
+            </section>
+        </div>
+        <div class="work-background">
+            <section id="work">
+                <h2 class="title">My Work</h2>
+                <p class="description">Projects</p>
+                <ul class="categories">
+                    <li >
+                        <span class="category">All<span class="category-count">8</span></span>
+                    </li>
+                    <li >
+                        <span class="category">Front-end<span class="category-count">4</span></span>
+                    </li>
+                    <li >
+                        <span class="category">Back-end<span class="category-count">2</span></span>
+                    </li>
+                    <li >
+                        <span class="category">Mobile<span class="category-count">2</span></span>
+                    </li>
+                </ul>
+                <ul class="projects">
+                    <li class="project">
+                        <img class="project-img" src="images/projects/project1.webp" alt="project #1">
+                        <div class="project-metadata">
+                            <h3 class="project-metadata-title">Project #1</h3>
+                            <p>Clone Coding with HTML, CSS</p>
+                        </div>
+                    </li>
+                    <li class="project">
+                        <img class="project-img" src="images/projects/project2.webp" alt="project #2">
+                        <div class="project-metadata">
+                            <h3 class="project-metadata-title">Project #2</h3>
+                            <p>Clone Coding with HTML, CSS</p>
+                        </div>
+                    </li>
+                    <li class="project">
+                        <img class="project-img" src="images/projects/project3.webp" alt="project #3">
+                        <div class="project-metadata">
+                            <h3 class="project-metadata-title">Project #3</h3>
+                            <p>Clone Coding with HTML, CSS</p>
+                        </div>
+                    </li>
+                    <li class="project">
+                        <img class="project-img" src="images/projects/project4.webp" alt="project #4">
+                        <div class="project-metadata">
+                            <h3 class="project-metadata-title">Project #4</h3>
+                            <p>Clone Coding with HTML, CSS</p>
+                        </div>
+                    </li>
+                    <li class="project">
+                        <img class="project-img" src="images/projects/project5.webp" alt="project #5">
+                        <div class="project-metadata">
+                            <h3 class="project-metadata-title">Project #5</h3>
+                            <p>Clone Coding with HTML, CSS</p>
+                        </div>
+                    </li>
+                    <li class="project">
+                        <img class="project-img" src="images/projects/project6.webp" alt="project #6">
+                        <div class="project-metadata">
+                            <h3 class="project-metadata-title">Project #6</h3>
+                            <p>Clone Coding with HTML, CSS</p>
+                        </div>
+                    </li>
+                    <li class="project">
+                        <img class="project-img" src="images/projects/project7.webp" alt="project #7">
+                        <div class="project-metadata">
+                            <h3 class="project-metadata-title">Project #7</h3>
+                            <p>Clone Coding with HTML, CSS</p>
+                        </div>
+                    </li>
+                    <li class="project">
+                        <img class="project-img" src="images/projects/project8.webp" alt="project #8">
+                        <div class="project-metadata">
+                            <h3 class="project-metadata-title">Project #8</h3>
+                            <p>Clone Coding with HTML, CSS</p>
+                        </div>
+                    </li>
+                </ul>
+    
+            </section>
+        </div>
+        <section id="testimonial">
+            <h2 class="title">Testimonial</h2>
+            <p class="description">See what they say about me</p>
+            <ul class="testimonials">
+                <li class="testimonial">
+                    <img class="testimonial-img" src="images/testimonials/people1.webp" alt="">
+                    <div class="testimonial-text">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima placeat magni soluta? Accusamus, vero quis at deserunt veritatis exercitationem eveniet explicabo dolores delectus porro! Magni beatae commodi consectetur odio id.</p>
+                        <p><a class="testimonial-text-name" href="#">James Kim</a> / Google</p>
+                    </div>
+                </li>
+                <li class="testimonial">
+                    <img class="testimonial-img" src="images/testimonials/people2.webp" alt="">
+                    <div class="testimonial-text">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima placeat magni soluta? Accusamus, vero quis at deserunt veritatis exercitationem eveniet explicabo dolores delectus porro! Magni beatae commodi consectetur odio id.</p>
+                        <p><a class="testimonial-text-name" href="#">Smith Park</a> / Samsung</p>
+                    </div>
+                </li>
+                <li class="testimonial">
+                    <img class="testimonial-img" src="images/testimonials/people3.webp" alt="">
+                    <div class="testimonial-text">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima placeat magni soluta? Accusamus, vero quis at deserunt veritatis exercitationem eveniet explicabo dolores delectus porro! Magni beatae commodi consectetur odio id.</p>
+                        <p><a class="testimonial-text-name" href="#">Anna Lee</a> / Samsung</p>
                     </div>
                 </li>
             </ul>
-            
         </section>
-        <section id="skill" class="section container">
-            <h2 class="title">My Skills</h2>
-            <p class="description">Skills & Attributes</p>
-            <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
-                Optio maiores accusamus unde soluta, magnam molestias non, 
-                iste error explicabo id blanditiis earum nobis doloremque consequatur laudantium ratione cupiditate repudiandae officia.
-            </p>
-            <div class="skills">
-                <article class="skills-coding">
-                    <h3 class="skill-title">Coding Skills</h3>
-                    <ul>
-                        <li class="bar">
-                            <div class="bar-title">
-                                <span>HTML</span>
-                                <span>98%</span>
-                            </div>
-                            <div class="bar-bg"><div class="bar-value" style="width: 98%;"></div></div>
-                        </li>
-                        <li class="bar">
-                            <div class="bar-title">
-                                <span>CSS</span>
-                                <span>90%</span>
-                            </div>
-                            <div class="bar-bg"><div class="bar-value" style="width: 90%;"></div></div>
-                        </li>
-                        <li class="bar">
-                            <div class="bar-title">
-                                <span>JavaScript</span>
-                                <span>90%</span>
-                            </div>
-                            <div class="bar-bg"><div class="bar-value" style="width: 90%;"></div></div>
-                        </li>
-                        <li class="bar">
-                            <div class="bar-title">
-                                <span>TypeScript</span>
-                                <span>85%</span>
-                            </div>
-                            <div class="bar-bg"><div class="bar-value" style="width: 85%;"></div></div>
-                        </li>
-                        <li class="bar">
-                            <div class="bar-title">
-                                <span>React</span>
-                                <span>79%</span>
-                            </div>
-                            <div class="bar-bg"><div class="bar-value" style="width: 79%;"></div></div>
-                        </li>
-                        <li class="bar">
-                            <div class="bar-title">
-                                <span>NodeJS</span>
-                                <span>68%</span>
-                            </div>
-                            <div class="bar-bg"><div class="bar-value" style="width: 68%;"></div></div>
-                        </li>
-                    </ul>
-                </article>
-                <article class="skills-tools">
-                    <h3 class="skill-title">Tools</h3>
-                    <ul>
-                        <li>Visual Studio Code</li>
-                        <li>IntelliJ</li>
-                        <li>Android Studio</li>
-                        <li>Eclips</li>
-                        <li>MySQL Workbench</li>
-                    </ul>
-                </article>
-                <article class="skills-etc">
-                    <h3 class="skill-title">Etc</h3>
-                    <ul>
-                        <li>Git</li>
-                        <li>Scrum Master</li>
-                        <li>SVN</li>
-                    </ul>
-                </article>
-            </div>
-        </section>
-        <section id="work" class="section container">
-            <h2 class="title">My Work</h2>
-            <p class="description">Projects</p>
-            <ul class="categories">
-                <li><button class="category">All<span class="category-count">8</span></button></li>
-                <li><button class="category">Front-end<span class="category-count">4</span></button></li>
-                <li><button class="category">Back-end<span class="category-count">2</span></button></li>
-                <li><button class="category">Mobile<span class="category-count">2</span></button></li>
-            </ul>
-            <ul class="projects">
-                <li class="project">
-                    <img class="project-img" src="images/projects/project1.webp" alt="project #1">
-                    <div class="project-metadata">
-                        <h3 class="project-metadata-title">Project #1</h3>
-                        <p>Clone Coding with HTML, CSS</p>
-                    </div>
-                </li>
-                <li class="project">
-                    <img class="project-img" src="images/projects/project2.webp" alt="project #2">
-                    <div class="project-metadata">
-                        <h3 class="project-metadata-title">Project #2</h3>
-                        <p>Clone Coding with HTML, CSS</p>
-                    </div>
-                </li>
-                <li class="project">
-                    <img class="project-img" src="images/projects/project3.webp" alt="project #3">
-                    <div class="project-metadata">
-                        <h3 class="project-metadata-title">Project #3</h3>
-                        <p>Clone Coding with HTML, CSS</p>
-                    </div>
-                </li>
-                <li class="project">
-                    <img class="project-img" src="images/projects/project4.webp" alt="project #4">
-                    <div class="project-metadata">
-                        <h3 class="project-metadata-title">Project #4</h3>
-                        <p>Clone Coding with HTML, CSS</p>
-                    </div>
-                </li>
-                <li class="project">
-                    <img class="project-img" src="images/projects/project5.webp" alt="project #5">
-                    <div class="project-metadata">
-                        <h3 class="project-metadata-title">Project #5</h3>
-                        <p>Clone Coding with HTML, CSS</p>
-                    </div>
-                </li>
-                <li class="project">
-                    <img class="project-img" src="images/projects/project6.webp" alt="project #6">
-                    <div class="project-metadata">
-                        <h3 class="project-metadata-title">Project #6</h3>
-                        <p>Clone Coding with HTML, CSS</p>
-                    </div>
-                </li>
-                <li class="project">
-                    <img class="project-img" src="images/projects/project7.webp" alt="project #7">
-                    <div class="project-metadata">
-                        <h3 class="project-metadata-title">Project #7</h3>
-                        <p>Clone Coding with HTML, CSS</p>
-                    </div>
-                </li>
-                <li class="project">
-                    <img class="project-img" src="images/projects/project8.webp" alt="project #8">
-                    <div class="project-metadata">
-                        <h3 class="project-metadata-title">Project #8</h3>
-                        <p>Clone Coding with HTML, CSS</p>
-                    </div>
-                </li>
-            </ul>
-        </section>
-        <section id="testimonial" class="section container">
-            
-        </section>        
+        
+        <aside class="arrow">
+            <a class="arrow-top" href="#"><i class="fa-solid fa-arrow-up"></i></a>
+        </aside>
     </main>
     <footer>
         <section id="contact">
-            
+            <h2 class="title">Let's Talk</h2>
+            <p class="description">com.developer.judy@gmail.com</p>
+            <ul class="contact-links">
+                <li>
+                    <a class="contact-link" href="#"><i class="fa-brands fa-github"></i></a>
+                </li>
+                <li>
+                    <a class="contact-link" href="#"><i class="fa-brands fa-linkedin"></i></a>
+                </li>
+            </ul>
+            <p>Junior Software Engineer Judy's Portfolio - All right reserved</p>
         </section>
+        
     </footer>
 </body>
 </html>
