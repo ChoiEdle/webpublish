@@ -249,7 +249,7 @@ home
 .category-count {
     position: absolute;
     top: -20px;
-    right: 16px;
+    right: 2px;
     background-color: var(--color-orange);
     color: var(--color-white);
     width: 28px;
@@ -370,4 +370,44 @@ footer {
 }
 .contact-link {
     color: var(--color-white);
+}
+
+@media screen and (max-width: 900px) {
+    .menu-right {
+        gap: 0;
+    }
+    .menu-item {
+        padding: 4px 8px;
+    }
+    .majors {
+        flex-direction: column;
+    }
+    .major {
+        width: 400px;
+    }
+    .category {
+        padding: 0.5rem 1rem;
+    }
+    .category-count {
+        right: -1rem;
+    }
+    .testimonial {
+        flex-direction: column;
+    }
+    .testimonial:nth-child(even) .testimonial-img {
+        order: 0;
+    }
+    
+}
+
+@media screen and (max-width: 620px) {
+    .menu-right{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 10px;
+    }
+    .categories {
+        flex-direction: column;
+        gap: 2rem;
+    }
 }
