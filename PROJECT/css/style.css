@@ -92,7 +92,7 @@ header {
     width: 70px;
 }
 .header-menu{
-    width: 200px;
+    width: 230px;
     display: flex;
     justify-content: right;
     gap: 10px;
@@ -103,13 +103,18 @@ header {
     width: 3rem;
     background-color: var(--color-button);
     border-radius: 100%;
-    font-size: 16px;
+    font-size: 1rem;
 }
 .header-menu-icon:hover{
     background-color: var(--color-button-over);
 }
 .header-menu-text{
     font-size: 1rem;
+    padding: 0.8rem;
+    border-radius: 30px;
+}
+.header-menu-text:hover{
+    background-color: var(--color-button);
 }
 .header-bottom{
     width: 900px;
@@ -119,20 +124,21 @@ header {
     justify-content: space-around;
     align-items: center;
     background-color: white;
-    border: 1px solid grey;
+    border: 1px solid var(--color-button);
     border-radius: 30px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;;
     /* padding: 10px 10px; */
 }
 .header-bottom-text{
     width: 210px;
     height: 70px;
-    border-right: 1px solid grey;
+    border-right: 1px solid var(--color-button);
     padding: 10px 30px;
 }
 .header-bottom-text:hover{
     border-radius: 29px;
     border: none;
-    background-color: gray;
+    background-color: var(--color-button);
 }
 .header-bottom-last{
     border: none;
@@ -256,6 +262,9 @@ footer{
 }
 .bottom-left li{
     margin: 10px;
+}
+.bottom-left-first{
+    list-style: none;
 }
 .bottom-right li{
     list-style: none;
