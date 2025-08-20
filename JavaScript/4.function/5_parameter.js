@@ -31,3 +31,10 @@ function add2(a, b, ... numbers){
 }
 
 
+function mul(... numbers){
+    let result = numbers.reduce((acc, cur) => acc*cur);
+    return result;
+}
+
+console.clear();
+console.log(mul(1,2,4));
