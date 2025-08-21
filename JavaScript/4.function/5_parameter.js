@@ -37,4 +37,4 @@ function mul(... numbers){
 }
 
 console.clear();
-console.log(mul(1,2,4));
+console.log(mul(2,2,4));
