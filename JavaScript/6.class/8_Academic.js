@@ -17,11 +17,8 @@ class Member {
     setName = (name) => this.name = name;
     setName = (age) => this.age = age;
     setName = (address) => this.address = address;
-
-    display = () => console.log(this.getName(), this.getAge(), this.getAddress());
-    
 }
-let member = new Member('홍길동', 10, '강남구');
+// let member = new Member('홍길동', 10, '강남구');
 // member.display();
 
 
@@ -32,6 +29,15 @@ class Student extends Member {
     }
     getSno = () => this.sno;
     setSno = (sno) => this.sno = sno;
+    display = () => console.log(this.getName(), this.getAge(), this.getAddress(), this.getSno());
+    makeObject = () => {
+        return {
+            'name' : this.name,
+            'age' : this.age,
+            'address' : this.address,
+            'sno' : this.sno
+        }
+    }
 }
 
 class Professor extends Member {
@@ -41,6 +47,15 @@ class Professor extends Member {
     }
     getSubject = () => this.subject;
     setSubject = (subject) => this.subject = subject;
+    display = () => console.log(this.getName(), this.getAge(), this.getAddress(), this.getSubject());
+    makeObject = () => {
+        return {
+            'name' : this.name,
+            'age' : this.age,
+            'address' : this.address,
+            'subject' : this.subject
+        }
+    }
 }
 
 class Parent extends Member {
@@ -50,6 +65,15 @@ class Parent extends Member {
     }
     getCname = () => this.cname;
     setCname = (cname) => this.cname = cname;
+    display = () => console.log(this.getName(), this.getAge(), this.getAddress(), this.getCname());
+    makeObject = () => {
+        return {
+            'name' : this.name,
+            'age' : this.age,
+            'address' : this.address,
+            'cname' : this.cname
+        }
+    }
 }
 class Employee extends Member {
     constructor(name, age, address, department){
@@ -58,6 +82,15 @@ class Employee extends Member {
     }
     getDepartment = () => this.department;
     setDepartment = (department) => this.department = department;
+    display = () => console.log(this.getName(), this.getAge(), this.getAddress(), this.getDepartment());
+    makeObject = () => {
+        return {
+            'name' : this.name,
+            'age' : this.age,
+            'address' : this.address,
+            'department' : this.department
+        }
+    }
 }
 
 /**
@@ -89,21 +122,43 @@ function display(type) {
  */
 function signupCheck() {
     let type = document.querySelector('input[type=radio]:checked').value;
+    let name, age, address, sno, subject, cname, department;
+    let member = null;
+
     switch(parseInt(type)) {
         case 1 : 
-            console.log('학생');
+            sno = document.querySelector('#student #sno').value;
+            name = document.querySelector('#student #name').value;
+            age = document.querySelector('#student #age').value;
+            address = document.querySelector('#student #address').value;
+            member = new Student(name, age, address, sno);
             break;
         case 2 : 
-            console.log('교수');
+            name = document.querySelector('#professor #name').value;
+            age = document.querySelector('#professor #age').value;
+            address = document.querySelector('#professor #address').value;
+            subject = document.querySelector('#professor #subject').value;
+            member = new Professor(name, age, address, subject);
             break;
         case 3 : 
-            console.log('학부모');
+            name = document.querySelector('#parent #name').value;
+            age = document.querySelector('#parent #age').value;
+            address = document.querySelector('#parent #address').value;
+            cname = document.querySelector('#parent #cname').value;
+            member = new Parent(name, age, address, cname);
             break;
         case 4 : 
-            console.log('직원');
+            name = document.querySelector('#employee #name').value;
+            age = document.querySelector('#employee #age').value;
+            address = document.querySelector('#employee #address').value;
+            department = document.querySelector('#employee #department').value;
+            member = new Employee(name, age, address, department);
             break;
-        
-            
-    }
+        }
+
+        //서버(NodeJS)로 전송 => member 전송!!
+        //서버(WAS)로 전송 => object literal 형태로 전송!!
+        member.display();
+        console.log(member.makeObject());   //object literal 출력
 }
 
