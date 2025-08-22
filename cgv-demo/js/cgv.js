@@ -1,58 +1,78 @@
 class User {
+    #id;
+    #pwd;
     constructor(id, pwd){
-        this.id = id;
-        this.pwd = pwd;
+        this.#id = id;
+        this.#pwd = pwd;
     }
-    display = () => console.log(this.id, this.pwd);
+    display = () => console.log(this.#id, this.#pwd);
     
 }
 
 
-function signupCheck() {
+function loginCheck() {
     let user = null;
-    const id = document.querySelector('#id').value;
-    const pwd = document.querySelector('#pwd').value;
-    if(id === ''){
-        alert('id를 입력해주세요');
-    } else if(pwd === ''){
-        alert('pwd를 입력해주세요');
+    let id = document.querySelector('#id');
+    let pwd = document.querySelector('#pwd');
+    if(id.value === ''){
+        alert('아이디를 입력해주세요');
+        id.focus();
+    } else if(pwd.value === ''){
+        alert('비밀번호를 입력해주세요');
+        pwd.focus();
     } else {
-        user = new User(id, pwd);
+        user = new User(id.value, pwd.value);
         user.display();
     }
 }
 
+/**
+ * 
+ */
 class Member extends User {
     constructor(id, pwd, name, phone, emailname, emaildomain) {
-        super(id, pwd);
+        super(id,pwd);
         this.name = name;
         this.phone = phone;
         this.email = `${emailname}@${emaildomain}`;
     }
     display = () => console.log(this.id, this.pwd, this.name, this.phone, this.email);
+    makeObject = () => {
+        return {
+            'id' : this.id,
+            'pwd' : this.pwd,
+            'name' : this.name,
+            'phone' : this.phone,
+            'email' : this.email
+        }
+    }
     
 }
-
-function joinupCheck() {
-    const id = document.querySelector('#id').value;
-    const pwd = document.querySelector('#pwd').value;
-    const cpwd = document.querySelector('#cpwd').value;
-    const name = document.querySelector('#name').value;
-    const phone = document.querySelector('#phone').value;
-    const emailname = document.querySelector('#emailname').value;
-    const emaildomain = document.querySelector('#emaildomain').value;
-    if(id === '' || pwd === '' || name === '' || phone === '' || emailname === ''){
+/**
+ * 로그인 처리 함수
+ */
+function signupCheck() {
+    let id = document.querySelector('#id');
+    let pwd = document.querySelector('#pwd');
+    let cpwd = document.querySelector('#cpwd');
+    let name = document.querySelector('#name');
+    let phone = document.querySelector('#phone');
+    let emailname = document.querySelector('#emailname');
+    let emaildomain = document.querySelector('#emaildomain');
+    if(id.value === '' || pwd.value === '' || name.value === '' || phone.value === '' || emailname.value === ''){
         alert('빈 칸이 존재합니다. 모두 입력해주세요');
-    } else if(!(pwd === cpwd)) {
+    } else if(!(pwd.value === cpwd.value)) {
         alert('비밀번호가 불일치합니다.');
-    } else if(emaildomain === 'default'){
+    } else if(emaildomain.value === 'default'){
         alert('이메일 주소를 확인해주세요');
-    } else if(pwd.length<12){
-        alert('비밀번호는 최소 12자리로 입력해주세요');
-    } 
-    else {
-        let member = new Member(id, pwd, name, phone, emailname, emaildomain);
+    } else if(pwd.value.length>12 || pwd.value.length<6){
+        alert('비밀번호는 6~12자로 해주세요');
+    } else if (id.value.length<6 || id.value.length>20) {
+        alert('아이디는 6~20자로 해주세요');
+    } else {
+        let member = new Member(id.value, pwd.value, name.value, phone.value, emailname.value, emaildomain.value);
         member.display();
+        console.log(member.makeObject());   
     }
 }
 
