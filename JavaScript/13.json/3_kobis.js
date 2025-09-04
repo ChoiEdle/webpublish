@@ -20,7 +20,7 @@ async function searchMoviePoster(movieNm, openDt) {
 }
 
 async function getAPI(sdate) {
-    let key = "1387ed83604df30a0c5d9dfdea0cba00";
+    let key = "708c3179e8cd07b258f317d87987956c";
     // let sdate = "20250903";
     let url = `https://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=${key}&targetDt=${sdate}`;
     let response = await fetch(url);
@@ -54,24 +54,25 @@ async function showResult(sdate) {
         </div>
         <h3>타입 : ${kobisobj.boxofficeType}</h3>
         <h3>일자 : ${kobisobj.showRange}</h3>
-        <table border=1>
-            <tr>
-                <th>순위</th>
-                <th>제목</th>
-                <th>개봉일</th>
-                <th>매출액</th>
-            </tr>
-            ${mlist.map((movie, index) => `
-                
-                    <tr>
-                        <td><img src="${posterList[index]}" /></td>
-                        <th>${movie.rank}</th>
-                        <th>${movie.movieNm}</th>
-                        <th>${movie.openDt}</th>
-                        <th>${parseInt(movie.salesAcc).toLocaleString()}</th>
-                    </tr>
-                `).join("")}
-        </table>
+        <div style="display:flex; gap:20px">
+            <img src="${posterList[0]}" id="poster"/>
+            <table border=1>
+                <tr>
+                    <th>순위</th>
+                    <th>제목</th>
+                    <th>개봉일</th>
+                    <th>매출액</th>
+                </tr>
+                ${mlist.map((movie, index) => `
+                        <tr class="movieInfo" id="${posterList[index]}">
+                            <th>${movie.rank}</th>
+                            <th>${movie.movieNm}</th>
+                            <th>${movie.openDt}</th>
+                            <th>${parseInt(movie.salesAcc).toLocaleString()}</th>
+                        </tr>
+                    `).join("")}
+            </table>
+        </div>
     `;
 
     document.querySelector("#content").innerHTML = output;
@@ -80,6 +81,22 @@ async function showResult(sdate) {
     document.querySelector("#btnSearch").addEventListener('click', () => {
         let sdate = document.querySelector("#searchDate").value.trim();
         showResult(sdate);
+    });
+
+    //
+    let rows = document.querySelectorAll(".movieInfo");
+    // console.log(rows);
+    rows.forEach((row) => {
+        row.addEventListener('mouseover', () => {
+            let imgURL = row.id;
+            row.style.background = 'gray';
+            // console.log(row.id);
+            document.querySelector("#poster").src = imgURL;
+            
+        });
+        row.addEventListener('mouseout', () => {
+            row.style.background = 'white';
+        });
     });
 
 }
