@@ -1,6 +1,6 @@
 //최초로 호출되는 함수
 window.addEventListener('DOMContentLoaded', function(){
-    showResult('20160302');
+    showResult('20250101');
 });
 
 /**
@@ -61,7 +61,7 @@ async function showResult(sdate) {
                 <th>개봉일</th>
                 <th>매출액</th>
             </tr>
-            ${kobisobj.dailyBoxOfficeList.map((movie, index) => `
+            ${mlist.map((movie, index) => `
                 
                     <tr>
                         <td><img src="${posterList[index]}" /></td>
