@@ -88,8 +88,8 @@ async function showResult(sdate) {
     // console.log(rows);
     rows.forEach((row) => {
         row.addEventListener('mouseover', () => {
-            let imgURL = row.id;
             row.style.background = 'gray';
+            let imgURL = row.id;
             // console.log(row.id);
             document.querySelector("#poster").src = imgURL;
             
