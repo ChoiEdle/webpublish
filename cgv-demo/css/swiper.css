@@ -1,6 +1,6 @@
 .swiper {
     /* border: 1px solid gray; */
-    width: 400px;
+    width: 1000px;
     height: 400px;
 }
 .swiper-slide {
@@ -9,6 +9,5 @@
     align-items: center;
 }
 .swiper-img {
-    width: 60%;
-
+    height: 90%;
 }

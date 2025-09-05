@@ -84,7 +84,9 @@ async function createSwiper() {
         // direction: 'vertical',
         autoplay: {delay: 3000},
         loop: true,
-      
+
+        slidesPerView: 3,
+        
         // If we need pagination
         pagination: {
             el: '.swiper-pagination',
