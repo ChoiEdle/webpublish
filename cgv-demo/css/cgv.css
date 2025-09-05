@@ -254,7 +254,8 @@ footer {
 .content-moviechart-list ul {
     /* border: 1px solid red; */
     list-style-type: none;
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     justify-content: space-between;
 }
 .content-moviechart-list ul li {
@@ -272,6 +273,7 @@ footer {
 .content-moviechart-list ul li img{
     border-radius: 15px;
     width: 170px;
+    height: 235px;
 }
 .content-moviechart-list ul li h3{
     text-align: center;

@@ -1,6 +1,7 @@
 //Dom 트리 생성(body 실행) 후 DOMContentLoaded 함수 처리
 window.addEventListener('DOMContentLoaded', function(){
     createSwiper();
+    createChart();
 })
 
 /**
@@ -103,5 +104,39 @@ async function createSwiper() {
             el: '.swiper-scrollbar',
         },
     });
+
+}
+
+async function createChart () {
+    let sdate = createSdate();
+    let kobis = await getAPI(sdate);
+    let kobisList = kobis.boxOfficeResult.dailyBoxOfficeList;
+    let posterList = [];
+    
+    //자동으로 순회하는 forEach는 비동기처리 함수를 호출할 수 없다.
+    for(const movie of kobisList) {
+        let poster = await searchMoviePoster(movie.movieNm, movie.openDt);
+        posterList.push(poster);
+    };
+
+    let output = `
+        <ul>
+            ${kobisList.map((movie, index) => `
+                <li>
+                    <div>
+                        <img src="${posterList[index]}" 
+                            alt="Movie-chart1"
+                            width="200px">
+                    </div>
+                    <div><h3>${movie.movieNm}</h3></div>
+                    <div><h5>${movie.openDt}</h5></div>
+                </li>
+            `).join("")}
+        </ul>
+    `;
+
+    document.querySelector("#content-moviechart-list").innerHTML = output;
+
+
 
 }

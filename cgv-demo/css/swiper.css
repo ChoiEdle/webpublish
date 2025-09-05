@@ -2,11 +2,12 @@
     /* border: 1px solid gray; */
     width: 1000px;
     height: 400px;
+    padding: 10px;
 }
 .swiper-slide {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: start;
 }
 .swiper-img {
     height: 90%;
