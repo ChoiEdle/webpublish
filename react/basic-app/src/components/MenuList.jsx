@@ -6,8 +6,8 @@ import { Menu } from "./Menu.jsx";
 export function MenuList({menus}) {     //menus = [{menus}]
     return (
         <ul className="menu-list">
-            {menus.map((menu)=>
-                <li>
+            {menus.map((menu, index)=>
+                <li key={index}>
                     <Menu title={menu.title} color={menu.color} bg={menu.bg} href={menu.href} />
                 </li>
             )}
