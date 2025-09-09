@@ -5,9 +5,12 @@
 //     );
 // }
 
-export function MyButton({name, type, style}) {   //구조분해할당:구조분해할당할땐 이름이 같아야함
+export function MyButton({name, type, style, handleProps}) {   //구조분해할당:구조분해할당할땐 이름이 같아야함
     const handleClick = () => {
-        alert("버튼 클릭");
+        alert(`버튼 클릭! --> ${name}`);
+        handleProps(`버튼 클릭! --> ${name}`);
+        console.log(`(자식)버튼 클릭! --> ${name}`);
+        
     }
 
     return (
