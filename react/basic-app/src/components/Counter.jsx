@@ -3,13 +3,20 @@ import { useState } from "react";
 export function Counter({click, total}) {
     const [number, setNumber] = useState(0);
 
+    
     const handleClickDecrement = () => {
+        if(total===0){
+            setNumber(0);
+        }
         if(number>0){
             setNumber(number-1);
             click("-");    //부모에게 number 전달
         }
     }
     const handleClickIncrement = () => {
+        if(total===0){
+            setNumber(0);
+        }
         if(number<10){
             setNumber(number+1);
             click("+");    //부모에게 number 전달
@@ -17,6 +24,7 @@ export function Counter({click, total}) {
     }
     const handleClickInit = () => {
         setNumber(0);
+        click(0,number);        
     }
 
     return (
