@@ -1,22 +1,19 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-export function Counter({click, total}) {
+export function Counter({click, total, init}) {
     const [number, setNumber] = useState(0);
 
+    useEffect(() => {   //Counter 컴포넌트 로딩 시 최초에 처음 실행되는 함수, 값이 변경될 때마다 재호출
+        setNumber(0);
+    }, [init]);       
     
     const handleClickDecrement = () => {
-        if(total===0){
-            setNumber(0);
-        }
         if(number>0){
             setNumber(number-1);
             click("-");    //부모에게 number 전달
         }
     }
     const handleClickIncrement = () => {
-        if(total===0){
-            setNumber(0);
-        }
         if(number<10){
             setNumber(number+1);
             click("+");    //부모에게 number 전달
@@ -24,7 +21,7 @@ export function Counter({click, total}) {
     }
     const handleClickInit = () => {
         setNumber(0);
-        click(0,number);        
+        click(0);    //부모의 click 함수 호출
     }
 
     return (
