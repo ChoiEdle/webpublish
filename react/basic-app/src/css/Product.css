@@ -49,23 +49,26 @@
 
 .best-product-content {
     position: relative;
-    border: 1px solid red;
+    /* border: 1px solid red; */
     margin: 0; padding: 0;
 }
 
 .best-product-img {
-    border: 1px solid blue;
+    /* border: 1px solid blue; */
     position: relative;
 }
 
 .best-product-img-no {
+    display: block;
+    text-align: center;
+    align-content: center;
     position: absolute;
     top: 0;
     left: 0;
-    background-color: #000;
-    color: #fff;
+    /* background-color: #000;
+    color: #fff; */
     font-weight: bold;
-    padding: 6px 12px;
+    /* padding: 6px 12px; */
 }
 
 .best-product-img-like {
