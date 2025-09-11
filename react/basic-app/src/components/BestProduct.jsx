@@ -33,7 +33,7 @@ export function BestProduct() {
             <ul className="best-product">
                 {bestProductList.map((product, index) =>
                 (index === 0) ?
-                    <li><BestProductImage
+                    <li key={index}><BestProductImage
                         img={product.img}
                         rank={product.rank}
                         like={product.like} 
@@ -63,8 +63,9 @@ export function BestProductItem({item, cartCount}) {
                 cartCount={cartCount}/>
             <BestProductContent
                 title={item.title}
-                sale={item.openDt}
-                price={item.audiAcc}
+                sale={item.sale}
+                price={item.price}
+                like={item.like}
                 icon={item.icon}/>
         </div>
     );
