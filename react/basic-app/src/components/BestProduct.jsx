@@ -58,13 +58,14 @@ export function BestProductItem({item, cartCount}) {
                 style={{width:"200px", height:"220px"}}
                 rank={item.rank}
                 like={item.like}
-                icon="🛒"
+                icon={item.icon}
+                icon_style={item.icon_style}
                 cartCount={cartCount}/>
             <BestProductContent
                 title={item.title}
-                sale={item.sale}
-                price={item.price}
-                icon="🤍"/>
+                sale={item.openDt}
+                price={item.audiAcc}
+                icon={item.icon}/>
         </div>
     );
 }

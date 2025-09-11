@@ -6,14 +6,15 @@ import './index.css';
 // import App from './AppButton.js';
 // import App from './AppCounter.js';
 // import App from './AppProduct.js';
-import App from './AppBoxoffice.js';
+// import App from './AppBoxoffice.js';
+import App from './AppMenu.js';
 import reportWebVitals from './reportWebVitals.js';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  // <React.StrictMode>
+  <React.StrictMode>
     <App />
-  // </React.StrictMode>
+  </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function

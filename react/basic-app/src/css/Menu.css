@@ -1,0 +1,10 @@
+.menu-item {
+    display: inline-block;
+    text-decoration: none;
+    text-align: center;
+    align-content: center;
+}
+.menu-list {
+    display: flex;
+    list-style: none;
+}
