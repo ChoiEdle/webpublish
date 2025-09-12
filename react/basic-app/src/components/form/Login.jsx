@@ -1,28 +1,40 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 export function Login() {
-    const [id, setId] = useState("");
-    const [password, setPassword] = useState("");
+    const idRef = useRef(null);
+    const passwordRef = useRef(null);
+
     const initForm = {
         id:"", 
         password:""
     };
     const [form, setForm] = useState(initForm);
 
-    const handleSubmit = () => {
-        
+    const handleChangeForm = (event) => {
+        const {name, value} = event.target;
+                
+        setForm({...form, [name]: value});
     }
 
-    const handleInput = (event) => {
-        // console.log("id --> ", event.target.value);
-        setId(event.target.value);
+    const handleSubmit = (event) => {
+        event.preventDefault();
+
+        if(idRef.current.value === "") {
+            alert("아이디를 입력해주세요");
+            idRef.current.focus();
+        } else if(passwordRef.current.value === "") {
+            alert("패스워드를 입력해주세요");
+            passwordRef.current.focus();
+        } else {
+            console.log("전송데이터 --> ", form);
+        }
     }
 
-    const handleInputPassword = (e) => {
-        setPassword(e.target.value);
+    const handleFormReset = () => {
+        setForm(initForm);
     }
 
-    console.log(id, password);
+    // console.log(form);
 
     return (
         <>
@@ -31,15 +43,15 @@ export function Login() {
                 <ul>
                     <li>
                         <label>아이디</label>
-                        <input type="text" name="id" value={form.id} onChange={handleChangeForm} />
+                        <input type="text" name="id" value={form.id} ref={idRef} placeholder="아이디를 입력해주세요" onChange={handleChangeForm} />
                     </li>
                     <li>
                         <label>패스워드</label>
-                        <input type="password" name="password" value={form.password} onChange={handleChangeForm} />
+                        <input type="password" name="password" value={form.password} ref={passwordRef} placeholder="패스워드를 입력해주세요" onChange={handleChangeForm} />
                     </li>
                     <li>
                         <button type="submit">로그인</button>
-                        <button type="reset">다시쓰기</button>
+                        <button type="reset" onClick={handleFormReset}>다시쓰기</button>
                     </li>
                 </ul>
             </form>
