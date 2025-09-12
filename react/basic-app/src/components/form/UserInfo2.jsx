@@ -13,14 +13,19 @@ export function UserInfo2() {
     const [formData, setFormData] = useState({name:"",age:"",address:"",email:"",hobby:""});
     const handleChangeForm = (e) => {
         const {name, value} = e.target;
-        console.log(name,value);
+        // console.log(name,value);
         setFormData({...formData, [name]:value});
+    }
+    const handleSubmit = (event) => {
+        event.preventDefault();
+
+        console.log(formData);
     }
 
     return (
         <>
             <h1>UserInfo2</h1>
-            <form>
+            <form onSubmit={handleSubmit}>
                 <ul>
                     {!forms || forms.map(item => 
                         <li>
@@ -28,6 +33,7 @@ export function UserInfo2() {
                             <TextInput item={item} value={formData[item.name]} handleChange={handleChangeForm} />
                         </li>
                     )}
+                    <button type="submit">전송</button>
                 </ul>
             </form>
         </>
