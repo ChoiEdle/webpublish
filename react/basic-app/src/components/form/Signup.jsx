@@ -5,10 +5,6 @@ import './cgvSignup.css';
 
 export function Signup() { 
     const initArray = ["id", "pwd", "cpwd", "name", "phone", "emailName", "emailDomain"];
-    // const initForm = initArray.reduce((acc,cur) => {
-    //     acc[cur]="";
-    //     return acc;
-    // }, {});
 
     const refs = useMemo(() => {    //Hooks 비동기식 처리 진행
         return initArray.reduce((acc,cur) => {
@@ -16,44 +12,18 @@ export function Signup() {
             return acc;
         }, {});
     })
-    
-    // const initForm = {
-        //     id: "",
-        //     pwd: "",
-        //     cpwd:"",
-        //     name: "",
-        //     phone: "",
-        //     emailName: "",
-    //     emailDomain: ""
-    // }
+
     const [form, setForm] = useState(initForm(initArray));
     const [errors, setErrors] = useState({...initForm(initArray), emailDomain: ""});
 
-    // console.log(refs);
-    
-    // const refs = {
-    //     idRef: useRef(null),
-    //     pwdRef: useRef(null),
-    //     cpwdRef: useRef(null),
-    //     nameRef: useRef(null),
-    //     phoneRef: useRef(null),
-    //     emailNameRef: useRef(null),
-    //     emailDomainRef: useRef(null)
-    // }
-
     const handleChangeForm = (e) => {
         const {name, value} = e.target;
-        // if(name==="cpwd"){
-        //     (form.pwd===form.cpwd) ? setMsg("") : setMsg("비밀번호와 다릅니다.")
-        // }
         
         setForm({...form,[name]:value});    //스프레드 연산자 이용
-        // setForm(prev => {prev, [name]:value}); //callback 함수 이용
+        // setForm(prev => ({...prev, [name]:value})); //callback 함수 이용
         setErrors({...initForm(initArray), emailDomain: ""});
 
-    }
-    console.log(errors);
-    
+    }    
 
     const handleResetForm = (e) => {
         e.preventDefault();
