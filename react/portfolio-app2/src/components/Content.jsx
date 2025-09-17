@@ -1,6 +1,8 @@
 import { About } from "./content/About.jsx";
+import { ArrowTop } from "./content/ArrowTop.jsx";
 import { Home } from "./content/Home.jsx";
 import { Skill } from "./content/Skill.jsx";
+import { Testimonial } from "./content/Testimonial.jsx";
 import { Work } from "./content/Work.jsx";
 
 export function Content() {
@@ -17,6 +19,8 @@ export function Content() {
             <About />
             <Skill />
             <Work />
+            <Testimonial />
+            <ArrowTop />
         </main>
     );
 }

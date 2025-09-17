@@ -1,22 +1,26 @@
-import { Title } from "../base/Title";
-import { Coding } from "./skill/Coding";
-import { Etc } from "./skill/Etc";
-import { Tools } from "./skill/Tools";
+import { List } from "../base/List.jsx";
+import { Description, SubTitle, Title } from "../base/Title.jsx";
+import { Article } from "./skill/Article.jsx";
+import { Coding } from "./skill/Coding.jsx";
 
 export function Skill() {
+    const tools = ["Visual Studio Code", "IntelliJ", "Android Studio", "Eclips", "MySQL Workbench"];
+    const etc = ["Git", "Scrum Master", "SVN"];
     return (
         <section id="skill" className="section container">
             <Title title="My Skill" />
-            <p className="description">Skills & Attributes</p>
-            <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
-                Optio maiores accusamus unde soluta, magnam molestias non, 
-                iste error explicabo id blanditiis earum nobis doloremque consequatur laudantium ratione cupiditate repudiandae officia.
-            </p>
+            <SubTitle title="Skills & Attributes" />
+            <Description />
             <div className="skills">
-                <Coding />
-                <Tools />
-                <Etc />
+                <Article title="Coding Skills" cn="skills-coding">
+                    <Coding />
+                </Article>
+                <Article title="Tools" cn="skills-tools">
+                    <List titles={tools} />
+                </Article>
+                <Article title="Etc" cn="skills-etc">
+                    <List titles={etc} />
+                </Article>
             </div>
         </section>
     );

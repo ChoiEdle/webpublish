@@ -5,7 +5,7 @@ import { Majors } from "./about/Majors";
 export function About() {
     return (
         <section id="about" className="section container">
-            <Title title="About"/>
+            <Title title="About me"/>
             <Description />
             <Majors />
             <Jobs />

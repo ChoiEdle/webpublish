@@ -27,19 +27,16 @@ export function Coding() {
         }
     ];
     return (
-        <article className="skills-coding">
-            <h3 className="skill-title">Coding Skills</h3>
-            <ul>
-                {skills.map(skill => 
-                    <li className="bar">
-                        <div className="bar-title">
-                            <span>{skill.name}</span>
-                            <span>{skill.per}</span>
-                        </div>
-                        <div className="bar-bg"><div className="bar-value" style={{width:skill.per}}></div></div>
-                    </li>
-                )}
-            </ul>
-        </article>
+        <ul>
+            {skills.map(skill => 
+                <li className="bar">
+                    <div className="bar-title">
+                        <span>{skill.name}</span>
+                        <span>{skill.per}</span>
+                    </div>
+                    <div className="bar-bg"><div className="bar-value" style={{width:skill.per}}></div></div>
+                </li>
+            )}
+        </ul>
     );
 }

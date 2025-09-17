@@ -16,3 +16,9 @@ export function Description() {
         </p>
     )
 }
+
+export function SubTitle({title}) {
+    return (
+        <p className="description">{title}</p>
+    );
+}
