@@ -8,14 +8,6 @@ export function Menu({href, title, click, style}) {
 
 export function MenuList({menus}) {
     const [target, setTarget] = useState("Home");
-    // const menus = [
-    //     {"href": "#home", "title": "Home"},
-    //     {"href": "#about", "title": "About"},
-    //     {"href": "#skill", "title": "Skill"},
-    //     {"href": "#work", "title": "My Work"},
-    //     {"href": "#testimonial", "title": "Testimonial"},
-    //     {"href": "#contact", "title": "Contact"}
-    // ];
     const handleClick = (title) => {
         setTarget(title);
     }
