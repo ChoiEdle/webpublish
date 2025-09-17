@@ -5,13 +5,19 @@ export function Title({title}) {
     );
 }
 
-export function Description() {
+export function Description({style}) {
     return (
-        <p className="description">
+        <p className={style}>
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
             Impedit quos tenetur fugiat velit beatae itaque error totam quam? 
             Quia placeat fuga alias a obcaecati. 
             Culpa at possimus consequatur eum libero!
         </p>
+    );
+}
+
+export function SubTitle({title}) {
+    return (
+        <p className="description">{title}</p>
     );
 }

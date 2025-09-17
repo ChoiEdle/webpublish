@@ -1,5 +1,8 @@
 import { About } from "./content/About.jsx";
 import { Home } from "./content/Home.jsx";
+import { Skills} from "./content/Skills.jsx"
+import { Testimonials } from "./content/Testimonials.jsx";
+import { Work } from "./content/Work.jsx";
 
 export function Content() {
     const homeData = {
@@ -12,6 +15,9 @@ export function Content() {
         <>
             <Home data={homeData} />
             <About />
+            <Skills />
+            <Work />
+            <Testimonials />
         </>
     );
 }

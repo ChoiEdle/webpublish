@@ -7,7 +7,7 @@ export function About() {
         <section id="about" className="section container">
             {/* <h2 className="title">About me</h2> */}
             <Title title="About me" />
-            <Description />
+            <Description style="description"/>
             <Majors />
             <Jobs />            
         </section>
