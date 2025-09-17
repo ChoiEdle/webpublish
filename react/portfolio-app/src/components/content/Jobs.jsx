@@ -10,21 +10,7 @@ export function Job({img, msg, jobName, jobPeriod}) {
     );
 }
 
-export function Jobs() {
-    const jobs = [
-        {
-            "img" : "/images/jobs/google.png",
-            "msg": "google",
-            "jobName": "Google as Junior Software Engineer",
-            "jobPeriod": "2019 Oct - Until now"
-        },
-        {
-            "img" : "/images/jobs/samsung.png",
-            "msg": "sansung",
-            "jobName": "Samsung as Junior Software Engineer",
-            "jobPeriod": "2010 Oct - 2019 Oct"
-        }
-    ];
+export function Jobs({jobs}) {
     return (
         <ul className="jobs">
             {jobs && jobs.map(job => 

@@ -6,16 +6,10 @@ export function Category({style, name, count}) {
     );
 }
 
-export function Categories() {
+export function Categories({categories}) {
     const [name, setName] = useState("ALL");
-    const categories = [
-        {"name":"ALL", "count":"8"},
-        {"name":"Front-end", "count":"4"},
-        {"name":"Back-end", "count":"2"},
-        {"name":"Mobile", "count":"2"}
-    ];
     return (
-        <ul class="categories">
+        <ul className="categories">
             {categories && categories.map(category => 
                 <li>
                     <Category name={category.name} count={category.count} style={ name === category.name ? "category selected" : "category"} />

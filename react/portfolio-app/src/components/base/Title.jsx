@@ -16,6 +16,12 @@ export function Description({style}) {
     );
 }
 
+export function BottomDescription({description}) {
+    return (
+        <p>{description}</p>
+    );
+}
+
 export function SubTitle({title}) {
     return (
         <p className="description">{title}</p>
