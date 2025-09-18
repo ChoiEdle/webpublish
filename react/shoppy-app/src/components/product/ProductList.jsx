@@ -1,27 +1,32 @@
 import React, { useEffect, useState } from 'react';
-import { fetchData, axiosData } from '../../utils/dataFetch.js';
+import { axiosData, groupByRows } from '../../utils/dataFetch.js';
 import { ProductAvatar } from './ProductAvatar.jsx';
 
 export function ProductList() {
-    const [list,setList] = useState([]);
+    const [rows,setRows] = useState([]);
+    const [number, setNumber] = useState(3);
     useEffect(()=>{
         const load = async() => {
             // const jsonData = await fetchData("/data/products.json");
             const jsonData = await axiosData("/data/products.json");
-            setList(jsonData);
+            const rows = groupByRows(jsonData, number);
+            setRows(rows);
         }
         load();
-    }, []);
-
-    //출력 포맷 함수 : 한줄에 3개씩 출력
-
+    }, [number]);
+    
     return (
         <div>
-            <div className='product-list'>
-                {list && list.map(product => 
-                    <ProductAvatar img={product.image} />
-                )}            
-            </div>
+            {/* {list && list.map(product => 
+                <ProductAvatar img={product.image} />
+                )}             */}
+            {rows && rows.map((rowArray, idx) => 
+                <div className='product-list' key={idx}>
+                    {rowArray && rowArray.map((product, idx) => 
+                        <ProductAvatar img={product.image} key={idx} />
+                    )}
+                </div>
+            )}
         </div>
     );
 }
