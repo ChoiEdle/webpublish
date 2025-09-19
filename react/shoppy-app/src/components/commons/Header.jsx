@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
 import { FiShoppingBag } from "react-icons/fi";
+import { useState,useEffect } from "react";
 
 
-export function Header() {
+export function Header({cartCount}) {
     return (
         <div className="header-outer">
             <div className="header">
@@ -12,6 +13,7 @@ export function Header() {
                 </Link>
                 <nav className="header-right">
                     <Link to="/all">Products</Link>
+                    <Link to="/cart">MyCart({cartCount})</Link>
                     <Link to="/login">
                         <button type="button">Login</button>
                     </Link>

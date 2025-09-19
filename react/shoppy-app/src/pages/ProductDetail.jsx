@@ -5,11 +5,14 @@ import { PiGiftThin } from 'react-icons/pi';
 import { ImageList } from '../components/commons/ImageList.jsx';
 import { StarRating } from '../components/commons/StarRating.jsx';
 
-export function ProductDetail() {
+export function ProductDetail({addCart}) {
     const {pid} = useParams();
     const [product, setProduct] = useState({});
     const [size, setSize] = useState('XS');
     const [imgList,setImgList] = useState([]);
+    const tabLabels = ['DETAIL','REVIEW','Q&A','RETURN & DELIVERY'];
+    const [tabName, setTabName] = useState('detail');
+    const tabEventNames = ['detail', 'review', 'qna', 'return'];
 
     useEffect(() => {
         const filterData = async () => {
@@ -19,7 +22,18 @@ export function ProductDetail() {
             setImgList(fproduct.imgList)            
         }
         filterData();        
-    }, []);
+    }, []);   
+
+    //쇼핑백 추가하기 함수
+    const handleAddCartItem = () => {
+        alert("상품이 카트에 추가되었습니다.");
+        const cartItem = {
+            pid : product.pid,
+            size : size,
+            qty: 1
+        }
+        addCart(cartItem);
+    }
 
     return (
         <div className='content'>
@@ -32,7 +46,7 @@ export function ProductDetail() {
                     <li className='product-detail-title'>{product.name}</li>
                     <li className='product-detail-title'>{`${parseInt(product.price).toLocaleString()}원`}</li>
                     <li className='product-detail-subtitle'>{product.info}</li>
-                    <li className='product-detail-subtitle-star'><StarRating rate={product.rate} style="star-coral" /><sapn>527개 리뷰 &nbsp;&nbsp; {">"} </sapn></li>
+                    <li className='product-detail-subtitle-star'><StarRating totalRate={product && product.rate} style="star-coral" /><sapn>527개 리뷰 &nbsp;&nbsp; {">"} </sapn></li>
                     <li><p className='product-detail-box'>신규회원, 무이자할부 등</p></li>
                     <li className='flex'>
                         <button className='product-detail-button size'>사이즈</button>
@@ -46,15 +60,29 @@ export function ProductDetail() {
                     </li>
                     <li className='flex'>
                         <button type='button' className='product-detail-button order'>바로 구매</button>
-                        <button type='button' className='product-detail-button cart'>쇼핑백 담기</button>
+                        <button type='button' className='product-detail-button cart' onClick={handleAddCartItem}>쇼핑백 담기</button>
                         <button type='button' className='gift'>
                             <PiGiftThin />
                             <div className='gift-span'>선물하기</div>
                         </button>
                     </li>
+                    <ul className='product-detail-summary-info'>
+                        <li>상품 요약 정보</li>
+                    </ul>
+                </ul>
+            </div>
+
+            <div className='product-detail-tab'>
+                <ul className='tabs'>
+                    { tabLabels && tabLabels.map((label, i)=>
+                        <li className={tabName === tabEventNames[i]?"active":""}>
+                            <button type='button' onClick={()=>setTabName(tabEventNames[i])}>{label}</button>
+                        </li>
+                    )}
 
                 </ul>
             </div>
+            <div style={{marginBottom:"50px"}}></div>
         </div>
     );
 }
