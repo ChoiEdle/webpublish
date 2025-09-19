@@ -75,7 +75,7 @@ export function ProductDetail({addCart}) {
             <div className='product-detail-tab'>
                 <ul className='tabs'>
                     { tabLabels && tabLabels.map((label, i)=>
-                        <li className={tabName === tabEventNames[i]?"active":""}>
+                        <li className={tabName === tabEventNames[i] ? "active" : ""}>
                             <button type='button' onClick={()=>setTabName(tabEventNames[i])}>{label}</button>
                         </li>
                     )}
