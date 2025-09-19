@@ -4,6 +4,7 @@ import { Products } from './pages/Products.jsx';
 import { Home } from './pages/Home.jsx';
 import { Login } from './pages/Login.jsx';
 import { Signup } from './pages/Signup.jsx';
+import { ProductDetail } from './pages/ProductDetail.jsx';
 import './styles/cgvSignup.css';
 import './styles/cgv.css';
 import './styles/cgvCommons.css';
@@ -18,6 +19,7 @@ export default function App() {
           <Route path='/all' element={<Products/>} />
           <Route path='/login' element={<Login/>} />
           <Route path='/signup' element={<Signup/>} />
+          <Route path='/products/:pid' element={<ProductDetail/>} />
         </Route>
       </Routes>
     </BrowserRouter>
