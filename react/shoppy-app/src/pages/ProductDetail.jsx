@@ -46,7 +46,7 @@ export function ProductDetail({addCart}) {
                     <li className='product-detail-title'>{product.name}</li>
                     <li className='product-detail-title'>{`${parseInt(product.price).toLocaleString()}원`}</li>
                     <li className='product-detail-subtitle'>{product.info}</li>
-                    <li className='product-detail-subtitle-star'><StarRating totalRate={product && product.rate} style="star-coral" /><sapn>527개 리뷰 &nbsp;&nbsp; {">"} </sapn></li>
+                    <li className='product-detail-subtitle-star'><StarRating totalRate={product && product.rate} style="star-coral" /><span>527개 리뷰 &nbsp;&nbsp; {">"} </span></li>
                     <li><p className='product-detail-box'>신규회원, 무이자할부 등</p></li>
                     <li className='flex'>
                         <button className='product-detail-button size'>사이즈</button>
@@ -66,9 +66,11 @@ export function ProductDetail({addCart}) {
                             <div className='gift-span'>선물하기</div>
                         </button>
                     </li>
-                    <ul className='product-detail-summary-info'>
-                        <li>상품 요약 정보</li>
-                    </ul>
+                    <li>
+                        <ul className='product-detail-summary-info'>
+                            <li>상품 요약 정보</li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
 
