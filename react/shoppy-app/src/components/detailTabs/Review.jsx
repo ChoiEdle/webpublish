@@ -3,7 +3,6 @@ import { axiosData } from '../../utils/dataFetch.js';
 import { StarRating } from '../commons/StarRating.jsx';
 import { ImageList } from '../commons/ImageList.jsx';
 import { FaRegCircleQuestion } from 'react-icons/fa6';
-import { TbThumbUp } from 'react-icons/tb';
 import { LikeItem } from '../commons/LikeItem.jsx';
 
 /**

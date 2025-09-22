@@ -51,7 +51,7 @@ export function QnA() {
                         </tr>
                     )}
                     <tr>
-                        <td colSpan={2}>{"<< "} 1 2 3 4 5 {" >>"}</td>
+                        <td colSpan={4}>{"<< "} 1 2 3 4 5 {" >>"}</td>
                     </tr>
                 </tbody>
             </table>
