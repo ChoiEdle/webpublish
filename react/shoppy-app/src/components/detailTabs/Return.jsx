@@ -20,11 +20,13 @@ export function Return() {
                 <tbody>
                     {returnData.list && returnData.list.map(item => 
                         <tr style={{paddingTop:"10px"}}>
-                            <td style={{width:"30%"}}>{item.title}</td>
+                            <td style={{width:"20%", textAlign:"center"}}>{item.title}</td>
                             <td style={{width:"60%"}}>
-                                {item.infoList.map(item=>
-                                    <li>{item}</li>
-                                )}
+                                <ul style={{textAlign:"left"}}>
+                                    {item.infoList.map(item=>
+                                        <li>{item}</li>
+                                    )}
+                                </ul>
                             </td>
                         </tr>
                     )}
