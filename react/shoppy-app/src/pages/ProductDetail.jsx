@@ -4,6 +4,8 @@ import { axiosData, groupByRows } from '../utils/dataFetch.js';
 import { PiGiftThin } from 'react-icons/pi';
 import { ImageList } from '../components/commons/ImageList.jsx';
 import { StarRating } from '../components/commons/StarRating.jsx';
+import { Detail } from '../components/detailTabs/Detail.jsx';
+import { Review } from '../components/detailTabs/Review.jsx';
 
 export function ProductDetail({addCart}) {
     const {pid} = useParams();
@@ -81,8 +83,10 @@ export function ProductDetail({addCart}) {
                             <button type='button' onClick={()=>setTabName(tabEventNames[i])}>{label}</button>
                         </li>
                     )}
-
                 </ul>
+
+                {tabName === "detail" && <Detail imgList={imgList} info={product.detailInfo} />}
+                {tabName === "review" && <Review />}
             </div>
             <div style={{marginBottom:"50px"}}></div>
         </div>

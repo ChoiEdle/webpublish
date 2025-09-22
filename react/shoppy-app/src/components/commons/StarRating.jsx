@@ -25,6 +25,8 @@ export function StarRating({totalRate, style}) {
             {[...Array(emptyStar)].map((_, i) =>
                 <span key={i} className={style.concat(" ", {color})}><FaRegStar /></span>
             )}
+            {/* 별점 표시 - 리뷰 */}
+            { style === "star-black-big" && <><span className={style.concat(" ", color)}>{totalRate} /</span><span className={style.concat(" ", color)}>5</span></>}
             {/* 별점 표시 */}
             { style === "star-coral" && <><span className={style.concat(" ", color)}>{totalRate}</span></>}
         </div>
