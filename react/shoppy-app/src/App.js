@@ -35,12 +35,12 @@ export default function App() {
       );
     } else {
       setCartItems(updateCartItemsQty(cartItems, cid, type));
-      setCartCount(cartItems.reduce((total, item)=>{return total+item.qty}, 0));
-      // type==="+"? setCartCount(cartCount + 1) : cartCount>1 ? setCartCount(cartCount - 1) : setCartCount(cartCount)
+      // setCartCount(cartItems.reduce((total, item)=>{return total+item.qty}, 0));   //내가 만든 것 : qty를 다 더한걸로 하면 될줄 알았는데 반응이 한박자 느림 ㅋㅋ
+      type==="+"? setCartCount(cartCount + 1) : cartCount>1 ? setCartCount(cartCount - 1) : setCartCount(cartCount)
     }
   }
 
-  console.log(cartItems);
+  // console.log(cartItems);
   
 
   return (
