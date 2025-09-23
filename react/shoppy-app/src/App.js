@@ -7,7 +7,7 @@ import { Login } from './pages/Login.jsx';
 import { Signup } from './pages/Signup.jsx';
 import { Cart } from './pages/Cart.jsx';
 import { ProductDetail } from './pages/ProductDetail.jsx';
-import { cartItemsCheck } from './utils/cart.js'
+import { cartItemsCheck, updateCartItemsQty } from './utils/cart.js'
 import './styles/cgvSignup.css';
 import './styles/cgv.css';
 import './styles/cgvCommons.css';
@@ -25,6 +25,21 @@ export default function App() {
     setCartCount(cartCount + 1);
   }
 
+  const updateCart = (cid, type) => {
+    if(type===undefined){
+      //삭제
+      const findItem = cartItems.find(cart => cart.cid === cid);
+      setCartCount(cartCount-findItem.qty);
+      setCartItems((cartItems) => 
+          cartItems.filter(item => !(item.cid === cid))
+      );
+    } else {
+      setCartItems(updateCartItemsQty(cartItems, cid, type));
+      setCartCount(cartItems.reduce((total, item)=>{return total+item.qty}, 0));
+      // type==="+"? setCartCount(cartCount + 1) : cartCount>1 ? setCartCount(cartCount - 1) : setCartCount(cartCount)
+    }
+  }
+
   console.log(cartItems);
   
 
@@ -36,7 +51,7 @@ export default function App() {
           <Route path='/all' element={<Products/>} />
           <Route path='/login' element={<Login/>} />
           <Route path='/signup' element={<Signup/>} />
-          <Route path='/cart' element={<Cart items={cartItems}/>} />
+          <Route path='/cart' element={<Cart items={cartItems} updateCart={updateCart}/>} />
           <Route path='/products/:pid' element={<ProductDetail addCart={addCart}/>} />
         </Route>
       </Routes>
