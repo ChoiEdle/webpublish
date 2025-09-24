@@ -67,6 +67,7 @@ export function Signup() {
                     </li>
                     <li>
                         <label for=""><b>비밀번호</b></label>
+                        <span style={{color:"red", fontSize:"0.7rem"}}>{errors.pwd}</span>
                         <div>
                             <input type="password" 
                                     name="pwd"
@@ -78,6 +79,7 @@ export function Signup() {
                     </li>
                     <li>
                         <label for=""><b>비밀번호 확인</b></label>
+                        <span style={{color:"red", fontSize:"0.7rem"}}>{errors.cpwd}</span>
                         <div>
                             <input type="password" 
                                     name="cpwd"
@@ -89,6 +91,7 @@ export function Signup() {
                     </li>
                     <li>
                         <label for=""><b>이름</b></label>
+                        <span style={{color:"red", fontSize:"0.7rem"}}>{errors.name}</span>
                         <div>
                             <input type="text" 
                                     name="name"
@@ -100,6 +103,7 @@ export function Signup() {
                     </li>
                     <li>
                         <label for=""><b>전화번호</b></label>
+                        <span style={{color:"red", fontSize:"0.7rem"}}>{errors.phone}</span>
                         <div>
                             <input type="text" 
                                     name="phone"
@@ -111,6 +115,7 @@ export function Signup() {
                     </li>
                     <li>
                         <label for=""><b>이메일 주소</b></label>
+                        <span style={{color:"red", fontSize:"0.7rem"}}>{errors.emailName}</span>
                         <span style={{color:"red", fontSize:"0.7rem"}}>{errors.emailDomain}</span>
                         <div>
                             <input type="text" 
