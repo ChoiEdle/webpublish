@@ -12,7 +12,7 @@ export function updateCartItemsQty(cartItems, cid, type) {
 export function cartItemsAddInfo(products, items) {
     return items.map((item) => {
         const product = products.find((product) => item.pid === product.pid);
-        return {...item, image:product.image, name:product.name, price:product.price}
+        return {...item, image:product.image, name:product.name, info:product.info, price:product.price}
     });
 }
 
