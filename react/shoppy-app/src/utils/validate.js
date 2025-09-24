@@ -72,5 +72,5 @@ export function validateFormCheck({refs, setErrors}) {
         refs.emailDomainRef.current.focus();
         return false;
     } 
-    
+    return true;
 }

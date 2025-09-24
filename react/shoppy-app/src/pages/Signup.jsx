@@ -39,7 +39,7 @@ export function Signup() {
             console.log("submit --> ", form);
             
         }
-        console.log(form);
+        // console.log(form);
     }
 
     
