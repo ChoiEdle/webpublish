@@ -1,12 +1,18 @@
 import { Menu } from "./Menu.jsx";
+import { useState } from "react";
 
-export function MenuList({menus}) {
+export function MenuList({menus, filterList}) {
+    const [active,setActive] = useState("all");
+    const handleClick = (type) => {
+        setActive(type);
+        filterList(type);
+    }
 
     return (
         <ul className="menu-list">
             {!menus || menus.map(menu => 
                 <li className="menu-list-item">
-                    <Menu href={menu.href} name={menu.name} style={menu.style} isIcon={menu.isIcon} icon={menu.icon} />
+                    <Menu href={menu.href} type={menu.type} name={menu.name} isIcon={menu.isIcon} icon={menu.icon} style={active===menu.type ? "support-content-menu support-active" : "support-content-menu"} handleClick={handleClick} />
                     {menu.isBorder ? <span className="menu-list-item-border"></span> : ""}
                 </li>
             )}

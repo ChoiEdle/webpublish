@@ -1,20 +1,34 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { SearchForm } from '../components/commons/SearchForm.jsx';
 import { MenuList } from '../components/commons/MenuList.jsx';
+import { axiosData } from '../utils/dataFetch.js';
 
 export function Support() {
-    const category = [
-        {"name":"제목", "value":"title"},
-        {"name":"내용", "value":"content"}
-    ];
-    const menus = [
-        {"href":"#", "name":"전체", "style": "filter-menu"},
-        {"href":"#", "name":"시스템점검", "style": "filter-menu"},
-        {"href":"#", "name":"극장", "style": "filter-menu"},
-        {"href":"#", "name":"행사/이벤트", "style": "filter-menu"},
-        {"href":"#", "name":"제휴이벤트", "style": "filter-menu"},
-        {"href":"#", "name":"기타", "style": "filter-menu"}
-    ]
+    const [menus, setMenus] = useState([]);
+    const [category, setCategory] = useState([]);
+    const [list, setList] = useState([]);
+    useEffect(()=>{
+        const load = async() => {
+            const jsonData = await axiosData("/data/support.json");
+            setMenus(jsonData.menus);
+            setCategory(jsonData.category);
+            setList(jsonData.list);
+        }
+        load();
+    },[]);
+
+    const filterList = (type) => {
+        const filter = async() => {
+            const jsonData = await axiosData("/data/support.json");
+            const filterData = jsonData.list.filter((item)=>item.type===type);
+            type === "all" ? setList(jsonData.list) : setList(filterData);
+        }
+        filter();
+        //아래는 내가 한 것 : 위의 filterList함수에 async를 붙였었음
+        // const jsonData = await axiosData("/data/support.json");
+        // const data = jsonData.list.filter((item)=>item.type===type);
+        // type === "all" ? setList(jsonData.list) : setList(data);
+    }
 
     return (
         <div className="content">
@@ -32,7 +46,7 @@ export function Support() {
                         <button>검색하기</button>
                     </div> */}
                     <nav>
-                        <MenuList menus={menus} />
+                        <MenuList menus={menus} filterList={filterList} />
                         {/* <ul className="filter-menu">
                             <li><a href="#" id="all">전체</a></li>
                             <li><a href="#" id="system">시스템점검</a></li>
@@ -43,6 +57,8 @@ export function Support() {
                         </ul> */}
                     </nav>
                     <p id="before-table">총 114건이 검색되었습니다. </p>
+                    
+                    {/* 내용 출력 - 테이블 */}
                     <table className="stable">
                         <thead>
                             <tr>
@@ -54,23 +70,24 @@ export function Support() {
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td><a href="#"></a></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
+                            {list && list.map((item, idx) => 
+                                <tr>
+                                    <td>{idx+1}</td>
+                                    <td>[{item.type}]</td>
+                                    <td>{item.title}</td>
+                                    <td>{item.rdate}</td>
+                                    <td>{item.hits}</td>
+                                </tr>
+                            )}
                         </tbody>
                         <tfoot>
                             <tr>
-                                <td colspan="5">1 2 3 4 5 {">>"} </td>
+                                <td colSpan={5}>1 2 3 4 5 {">>"} </td>
                             </tr>
                         </tfoot>
                     </table>
                 </div>
             </div>
-            {/* 내용 출력 - 테이블 */}
         </div>  
     );
 }
