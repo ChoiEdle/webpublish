@@ -73,7 +73,7 @@ export function Login() {
                     <li>
                         <div>
                             <input type="checkbox" name="status" />
-                            <label for="">아이디 저장</label>
+                            <label htmlFor="">아이디 저장</label>
                         </div>
                         <div>
                             <a href="#">아이디 찾기</a> 

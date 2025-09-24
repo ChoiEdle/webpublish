@@ -51,7 +51,7 @@ export function Signup() {
             <form onSubmit={handleSubmit}>
                 <ul>
                     <li>
-                        <label for="" ><b>아이디</b></label>
+                        <label htmlFor="" ><b>아이디</b></label>
                         <span style={{color:"red", fontSize:"0.7rem"}}>{errors.id}</span>
                         <div>
                             <input type="text" 
@@ -66,7 +66,7 @@ export function Signup() {
                         </div>
                     </li>
                     <li>
-                        <label for=""><b>비밀번호</b></label>
+                        <label htmlFor=""><b>비밀번호</b></label>
                         <span style={{color:"red", fontSize:"0.7rem"}}>{errors.pwd}</span>
                         <div>
                             <input type="password" 
@@ -78,7 +78,7 @@ export function Signup() {
                         </div>
                     </li>
                     <li>
-                        <label for=""><b>비밀번호 확인</b></label>
+                        <label htmlFor=""><b>비밀번호 확인</b></label>
                         <span style={{color:"red", fontSize:"0.7rem"}}>{errors.cpwd}</span>
                         <div>
                             <input type="password" 
@@ -90,7 +90,7 @@ export function Signup() {
                         </div>
                     </li>
                     <li>
-                        <label for=""><b>이름</b></label>
+                        <label htmlFor=""><b>이름</b></label>
                         <span style={{color:"red", fontSize:"0.7rem"}}>{errors.name}</span>
                         <div>
                             <input type="text" 
@@ -102,7 +102,7 @@ export function Signup() {
                         </div>
                     </li>
                     <li>
-                        <label for=""><b>전화번호</b></label>
+                        <label htmlFor=""><b>전화번호</b></label>
                         <span style={{color:"red", fontSize:"0.7rem"}}>{errors.phone}</span>
                         <div>
                             <input type="text" 
@@ -114,7 +114,7 @@ export function Signup() {
                         </div>
                     </li>
                     <li>
-                        <label for=""><b>이메일 주소</b></label>
+                        <label htmlFor=""><b>이메일 주소</b></label>
                         <span style={{color:"red", fontSize:"0.7rem"}}>{errors.emailName}</span>
                         <span style={{color:"red", fontSize:"0.7rem"}}>{errors.emailDomain}</span>
                         <div>
