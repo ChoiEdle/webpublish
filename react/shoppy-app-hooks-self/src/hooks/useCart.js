@@ -8,7 +8,7 @@ import { cartItemsCheck, cartItemsAddInfo, getTotalPrice, updateCartItemsQty } f
  */
 export function useCart() {
     //CartContext의 값 가져오기
-    const {setCartCount, setCartList, cartCount, cartList} = useContext(CartContext);    
+    const {setCartCount, setCartList, cartCount, cartList, totalPrice, setTotalPrice} = useContext(CartContext);    
 
     //장바구니 아이템 추가
     const addCart = (cartItem) => {
@@ -21,7 +21,7 @@ export function useCart() {
         const load = async() => {
             const jsonData = await axiosData("/data/products.json");
             setCartList(cartItemsAddInfo(jsonData, cartList));
-            // setTotalPrice(getTotalPrice(jsonData, cartList));
+            setTotalPrice(getTotalPrice(jsonData, cartList));
         }
         load();
     }

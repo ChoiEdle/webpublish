@@ -9,9 +9,9 @@ import '../styles/cart.css';
 
 export function Cart() {
     const {showCart} = useCart();
-    const {cartList} = useContext(CartContext);
+    const {cartList, totalPrice} = useContext(CartContext);
     const navigate = useNavigate();
-    const [totalPrice, setTotalPrice] = useState(0);
+    // const [totalPrice, setTotalPrice] = useState(0);
     useEffect(() => {
         showCart();
     }, []);
@@ -20,7 +20,7 @@ export function Cart() {
     const handleUpdateCartList = (cid, type) => {
         // setCartList(updateCartItemsQty(cartList, cid, type));
         const findItem = cartList.find(item => item.cid === cid);
-        type === "+" ? setTotalPrice(totalPrice+findItem.price) : findItem.qty>1 ? setTotalPrice(totalPrice-findItem.price) : setTotalPrice(totalPrice)
+        // type === "+" ? setTotalPrice(totalPrice+findItem.price) : findItem.qty>1 ? setTotalPrice(totalPrice-findItem.price) : setTotalPrice(totalPrice)
 
 
         // type==="-" ? setCartList(cartList.map(item => item.cid === cid ? {...item, qty:(item.qty>1 ? item.qty-1 : 1)} : item)) : setCartList(cartList.map(item => item.cid === cid ? {...item, qty:item.qty+1} : item))
@@ -28,7 +28,7 @@ export function Cart() {
 
     const handleRemoveCartList = (cid) => {
         const findItem = cartList.find(cart => cart.cid === cid);
-        setTotalPrice(totalPrice-(findItem.qty*findItem.price));
+        // setTotalPrice(totalPrice-(findItem.qty*findItem.price));
         // setCartList((cartList) => 
         //     cartList.filter(item => !(item.cid === cid))
         // );

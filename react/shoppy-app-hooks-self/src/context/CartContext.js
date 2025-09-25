@@ -8,9 +8,10 @@ export const CartProvider = ({children}) => {
     //1. 장바구니 수량 관리 : setCartCount
     const [cartCount, setCartCount] = useState(0);
     const [cartList, setCartList] = useState([]);
+    const [totalPrice, setTotalPrice] = useState(0);
     
     return (
-        <CartContext.Provider value={{cartCount, setCartCount, cartList, setCartList}}>
+        <CartContext.Provider value={{cartCount, setCartCount, cartList, setCartList, totalPrice, setTotalPrice}}>
             {children}
         </CartContext.Provider>
     );
