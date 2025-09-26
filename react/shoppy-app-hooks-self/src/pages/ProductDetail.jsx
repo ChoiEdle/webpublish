@@ -24,12 +24,15 @@ export function ProductDetail() {
     useEffect(() => {
         const filterData = async () => {
             const jsonData = await axiosData("/data/products.json");
-            const [fproduct] = await jsonData.filter((item) => item.pid === pid);      //[]준건 배열을 구조 분해 할당 한 것
+            // const [fproduct] = await jsonData.filter((item) => item.pid === pid);      //[]준건 배열을 구조 분해 할당 한 것
+            const fproduct = jsonData.find((item)=> item.pid === pid);
             setProduct(fproduct);
             setImgList(fproduct.imgList)            
         }
         filterData();        
     }, []);   
+    // console.log(product);
+    
 
     //쇼핑백 추가하기 함수
     const handleAddCartItem = () => {

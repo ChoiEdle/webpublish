@@ -3,8 +3,10 @@ import { FaRegUser } from "react-icons/fa6";
 import { FaLock } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { validateFormCheck2 } from "../utils/validate.js";
+import { useAuth } from "../hooks/useAuth.js";
 
 export function Login() {
+    const {handleLogin} = useAuth();
     const navigate = useNavigate();
     const [formData, setFormData] = useState({id:'',pwd:''});
     const [errors, setErrors] = useState({id:"", pwd:""})
@@ -30,11 +32,12 @@ export function Login() {
             const did = "test";
             const dpwd = "1234";
             if(did === formData.id && dpwd === formData.pwd) {
+                handleLogin(formData.id);
                 alert("로그인에 성공하셨습니다.");
-                const loginInfo = {
-                    "userId": formData.id,
-                    "token": "woenel1231214dl"
-                }
+                // const loginInfo = {
+                //     "userId": formData.id,
+                //     "token": "woenel1231214dl"
+                // }
                 // localStorage.setItem("loginInfo", JSON.stringify(loginInfo));   //객체를 문자열로 저장
                 navigate("/");
             } else {

@@ -1,19 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { axiosData, groupByRows } from '../../utils/dataFetch.js';
 import { ProductAvatar } from './ProductAvatar.jsx';
+import { ProductContext } from '../../context/ProductContext.js';
+import { useProduct } from '../../hooks/useProduct.js';
 
 export function ProductList() {
-    const [rows,setRows] = useState([]);
+    const {rows} = useContext(ProductContext);
+    const {showRows} = useProduct();
     const [number, setNumber] = useState(3);
     useEffect(()=>{
-        const load = async() => {
-            // const jsonData = await fetchData("/data/products.json");
-            const jsonData = await axiosData("/data/products.json");
-            const rows = groupByRows(jsonData, number);
-            setRows(rows);
-        }
-        load();
+        showRows(number);
     }, [number]);
     
     return (
