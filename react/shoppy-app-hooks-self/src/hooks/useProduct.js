@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { ProductContext } from '../context/ProductContext.js';
 import { axiosData } from '../utils/dataFetch.js';
 import { groupByRows } from '../utils/dataFetch.js';
@@ -6,22 +6,23 @@ import { groupByRows } from '../utils/dataFetch.js';
 export function useProduct() {
     const {productList, setProductList, rows, setRows} = useContext(ProductContext);
 
-    const createProduct = () => {
+    useEffect(() => {
         const load = async () => {
             const jsonData = await axiosData("/data/products.json");
             setProductList(jsonData);
+            setRows(groupByRows(jsonData, 3));
         }
         load();
-    }
+    })
     
     const showRows = (number) => {
-        const load = async () => {
-            const jsonData = await axiosData("/data/products.json");
-            setRows(groupByRows(jsonData, number));
-        }
-        load();
+        // const load = async () => {
+        //     const jsonData = await axiosData("/data/products.json");
+        // }
+        // load();
+
     }
 
-    return {createProduct, showRows};
+    return {showRows};
 }
 
