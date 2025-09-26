@@ -1,12 +1,10 @@
-import React, { useState } from "react";
-import { useLocation } from "react-router-dom";
+import React, { useContext } from "react";
+import { CartContext } from "../context/CartContext.js";
 import "../styles/cart.css";
 import "../styles/checkoutinfo.css";
 
 export function CheckoutInfo() {   
-    const {state} = useLocation();
-    const [orderList, setOrderList] = useState(state.cartList);
-    
+    const {cartList, totalPrice} = useContext(CartContext);
 
 return (
     <div className="cart-container">
@@ -61,7 +59,7 @@ return (
         <h2 className="section-title">주문 상품</h2>
         <div className="info-box">
         <div className="info-grid">
-            { orderList && orderList.map(item => 
+            { cartList && cartList.map(item => 
                 <>
                     <div className="label">상품명</div>
                     <div className="value">
@@ -80,7 +78,7 @@ return (
             <tbody>
                 <tr>
                     <td>총상품가격</td>
-                    <td className="price">{state.totalPrice.toLocaleString()}원</td>
+                    <td className="price">{totalPrice.toLocaleString()}원</td>
                 </tr>
                 <tr>
                     <td>즉시할인</td>
@@ -104,7 +102,7 @@ return (
                 </tr>
                 <tr className="total">
                     <td>총결제금액</td>
-                    <td className="total-price">{state.totalPrice.toLocaleString()}원</td>
+                    <td className="total-price">{totalPrice.toLocaleString()}원</td>
                 </tr>
 
             </tbody>

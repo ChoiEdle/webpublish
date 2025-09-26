@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { FiShoppingBag } from "react-icons/fi";
 import { GiShoppingCart } from "react-icons/gi";
-import { useState,useEffect, useContext } from "react";
+import { useContext } from "react";
 import { CartContext } from "../../context/CartContext.js";
 
 

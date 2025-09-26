@@ -1,50 +1,15 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useEffect, useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { RiDeleteBin6Line } from 'react-icons/ri';
-import { axiosData } from '../utils/dataFetch.js';
-import { cartItemsAddInfo, getTotalPrice, updateCartItemsQty } from '../utils/cart.js';
 import { CartContext } from '../context/CartContext.js';
 import { useCart } from '../hooks/useCart.js';
 import '../styles/cart.css';
 
-export function Cart({updateCart}) {
-    const {showCart} = useCart();
-    const {cartList} = useContext(CartContext);
+export function Cart() {
     const navigate = useNavigate();
-    // const [cartList, setCartList] = useState(items);
-    const [totalPrice, setTotalPrice] = useState(0);
-    useEffect(() => {
-        // const load = async() => {
-        //     const jsonData = await axiosData("/data/products.json");
-        //     setCartList(cartItemsAddInfo(jsonData, items));
-        //     setTotalPrice(getTotalPrice(jsonData, items));
-        // }
-        // load();
-        showCart();
-    }, []);
-
-    //수량 업데이트 함수
-    // const handleUpdateCartList = (cid, type) => {
-    //     setCartList(updateCartItemsQty(cartList, cid, type));
-    //     const findItem = cartList.find(item => item.cid === cid);
-    //     type === "+" ? setTotalPrice(totalPrice+findItem.price) : findItem.qty>1 ? setTotalPrice(totalPrice-findItem.price) : setTotalPrice(totalPrice)
-
-    //     updateCart(cid, type);
-
-    //     // type==="-" ? setCartList(cartList.map(item => item.cid === cid ? {...item, qty:(item.qty>1 ? item.qty-1 : 1)} : item)) : setCartList(cartList.map(item => item.cid === cid ? {...item, qty:item.qty+1} : item))
-    // }
-
-    // const handleRemoveCartList = (cid) => {
-    //     const findItem = cartList.find(cart => cart.cid === cid);
-    //     setTotalPrice(totalPrice-(findItem.qty*findItem.price));
-    //     setCartList((cartList) => 
-    //         cartList.filter(item => !(item.cid === cid))
-    //     );
-    //     updateCart(cid);
-    // }
-
-    // console.log(cartList);
-    
+    const {showCart, updateCart, removeCart} = useCart();
+    const {cartList, totalPrice} = useContext(CartContext);
+    useEffect(() => {showCart();}, []);
     return (
         <div className='cart-container'>
             <h2 className='cart-header'>장바구니</h2>
@@ -60,13 +25,13 @@ export function Cart({updateCart}) {
                                 <p className='cart-item-title'>{parseInt(item.price).toLocaleString()}원</p>
                             </div>
                             <div className='cart-quantity'>
-                                {/* <button type='button' onClick={()=>{item.qty > 1 && handleUpdateCartList(item.cid, "-")}}>-</button> */}
+                                <button type='button' onClick={()=>{item.qty > 1 && updateCart(item.cid, "-")}}>-</button>
                                 <input type="text" value={item.qty} readOnly/>
-                                {/* <button type='button' onClick={()=>{handleUpdateCartList(item.cid, "+")}}>+</button> */}
+                                <button type='button' onClick={()=>{updateCart(item.cid, "+")}}>+</button>
                             </div>
-                            {/* <button className='cart-remove' onClick={()=>{handleRemoveCartList(item.cid)}}>
+                            <button className='cart-remove' onClick={()=>{removeCart(item.cid, item.qty, item.price)}}>
                                 <RiDeleteBin6Line />
-                            </button> */}
+                            </button>
                         </div>
 
                     </div>
@@ -98,7 +63,7 @@ export function Cart({updateCart}) {
                     </div>
                     <div className='cart-actions'>
                         <button type='button' onClick={()=>{
-                            navigate("/checkout", {state: {cartList:cartList, totalPrice:totalPrice}});
+                            navigate("/checkout");
                         }}>주문하기</button>
                     </div>
                 </>

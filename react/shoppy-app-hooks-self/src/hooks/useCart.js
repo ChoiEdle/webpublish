@@ -26,5 +26,20 @@ export function useCart() {
         load();
     }
 
-    return {addCart, showCart}
+    //장바구니 수량 변경
+    const updateCart = (cid, type, qty, price) => {
+        setCartList(cartList.map(item => item.cid === cid ? type === '+' ? {...item, qty: item.qty + 1 } : item.qty > 1 ? {...item, qty: item.qty - 1 }: item : item));
+        type === "+" ? setTotalPrice(totalPrice+price) : qty>1 ? setTotalPrice(totalPrice-price) : setTotalPrice(totalPrice)
+        type==="+"? setCartCount(cartCount + 1) : cartCount>1 ? setCartCount(cartCount - 1) : setCartCount(cartCount)
+    }
+
+    //장바구니 아이템 제거
+    const removeCart = (cid, qty, price) => {
+        setTotalPrice(totalPrice-(qty*price));
+        setCartCount(cartCount-qty);
+        setCartList((cartList) => 
+            cartList.filter(item => !(item.cid === cid))
+        );
+    }
+    return {addCart, showCart, updateCart, removeCart};
 }
