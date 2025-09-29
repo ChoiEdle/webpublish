@@ -14,7 +14,7 @@ export const groupByRows = (array, number) => {
     //초기 acc=[] 에 첫 값 [cur0]를 씌워보냄 => acc = [[cur0]] 2번째는 acc[0]에 [cur1]를 보냄 
     //=> acc = [[cur0,cur1]] 3번째도 2번과 마찬가지 => acc = [[cur0, cur1, cur2]] 에 첨으로 돌아감
     //acc[]가 아닌 acc에 []를 씌운 값을 보냄 => [[cur0, cur1, cur2], [cur3]] 이걸 반복
-    const rows = array.reduce((acc, cur, idx) => {  
+    const rows = array && array.reduce((acc, cur, idx) => {  
         if(idx%number===0) acc.push([cur])
         else acc[acc.length-1].push(cur);
         return acc;
