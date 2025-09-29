@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { useParams } from 'react-router-dom';
-import { axiosData, groupByRows } from '../utils/dataFetch.js';
 import { PiGiftThin } from 'react-icons/pi';
 import { ImageList } from '../components/commons/ImageList.jsx';
 import { StarRating } from '../components/commons/StarRating.jsx';
@@ -18,8 +17,6 @@ export function ProductDetail() {
     const {product, imgList} = useContext(ProductContext);
 
     const {pid} = useParams();
-    // const [product, setProduct] = useState({});
-    // const [imgList, setImgList] = useState([]);
     const [size, setSize] = useState('XS');
     const tabLabels = ['DETAIL','REVIEW','Q&A','RETURN & DELIVERY'];
     const [tabName, setTabName] = useState('detail');

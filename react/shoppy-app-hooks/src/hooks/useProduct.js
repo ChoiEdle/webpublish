@@ -15,13 +15,10 @@ export function useProduct() {
     }
 
     const filterProduct = (pid) => {
-        const filterData = async () => {
-            const jsonData = await axiosData("/data/products.json");
-            const [fproduct] = await jsonData.filter((item) => item.pid === pid);      //[]준건 배열을 구조 분해 할당 한 것
-            setProduct(fproduct);
-            setImgList(fproduct.imgList)            
-        }
-        filterData();        
+        //productList가 2차원 배열이므로 flat() 함수를 이용하여 1차원 변경 후 filter
+        const [fproduct] = productList.flat().filter((item) => item.pid === pid);      //[]준건 배열을 구조 분해 할당 한 것
+        setProduct(fproduct);
+        setImgList(fproduct.imgList)            
     }
 
     return { createProduct, filterProduct };
