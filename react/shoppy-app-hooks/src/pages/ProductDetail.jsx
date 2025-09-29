@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import { axiosData, groupByRows } from '../utils/dataFetch.js';
 import { PiGiftThin } from 'react-icons/pi';
@@ -9,27 +9,25 @@ import { Review } from '../components/detailTabs/Review.jsx';
 import { QnA } from '../components/detailTabs/QnA.jsx'
 import { Return } from '../components/detailTabs/Return.jsx'
 import { useCart } from '../hooks/useCart.js';
+import { useProduct } from '../hooks/useProduct.js';
+import { ProductContext } from '../context/ProductContext.js';
 
 export function ProductDetail() {
     const {addCart} = useCart();
+    const {filterProduct} = useProduct();
+    const {product, imgList} = useContext(ProductContext);
 
     const {pid} = useParams();
-    const [product, setProduct] = useState({});
+    // const [product, setProduct] = useState({});
+    // const [imgList, setImgList] = useState([]);
     const [size, setSize] = useState('XS');
-    const [imgList,setImgList] = useState([]);
     const tabLabels = ['DETAIL','REVIEW','Q&A','RETURN & DELIVERY'];
     const [tabName, setTabName] = useState('detail');
     const tabEventNames = ['detail', 'review', 'qna', 'return'];
 
     useEffect(() => {
-        const filterData = async () => {
-            const jsonData = await axiosData("/data/products.json");
-            const [fproduct] = await jsonData.filter((item) => item.pid === pid);      //[]준건 배열을 구조 분해 할당 한 것
-            setProduct(fproduct);
-            setImgList(fproduct.imgList)            
-        }
-        filterData();        
-    }, []);   
+        filterProduct(pid);
+    }, []);       
 
     //쇼핑백 추가하기 함수
     const handleAddCartItem = () => {

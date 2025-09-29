@@ -1,10 +1,11 @@
 import { createContext, useState } from "react";
 
-//1. Context 생성
+//1. AuthContext 생성
 export const AuthContext = createContext();
 
-//CartProvider는 CartContext를 사용하는 컴포넌트들의 범위를 정의
+//2. AuthContext의 Provider 생성
 export const AuthProvider = ({children}) => {
+    //로그인 결과
     const [isLogin, setIsLogin] = useState(false);
 
     return (

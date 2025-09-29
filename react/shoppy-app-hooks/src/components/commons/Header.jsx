@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { FiShoppingBag } from "react-icons/fi";
 import { GiShoppingCart } from "react-icons/gi";
-import { useState, useEffect, useContext } from "react";
+import { useContext } from "react";
 import { CartContext } from "../../context/CartContext.js";
 import { AuthContext } from "../../context/AuthContext.js";
 import { useAuth } from "../../hooks/useAuth.js";
@@ -26,9 +26,7 @@ export function Header() {
                         <span className="header-icons-cart">{cartCount}</span>
                     </Link>
                     {isLogin ? 
-                        // <Link to="/login">
                         <button type="button" onClick={handleLogout}>Logout</button>
-                        // </Link> 
                         :
                         <Link to="/login">
                         <button type="button">Login</button>
