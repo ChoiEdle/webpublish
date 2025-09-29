@@ -16,6 +16,7 @@ import './styles/cgvSignup.css';
 import './styles/cgv.css';
 import './styles/commons.css';
 import './styles/shoppy.css';
+import { ProtectedPageRoute } from './pages/ProtectedPageRoute.js';
 
 export default function App() {
   return (
@@ -31,7 +32,7 @@ export default function App() {
                 <Route path='/signup' element={<Signup/>} />
                 <Route path='/cart' element={<Cart />} />
                 <Route path='/products/:pid' element={<ProductDetail />} />
-                <Route path='/checkout' element={<CheckoutInfo />} />
+                <Route path='/checkout' element={<ProtectedPageRoute><CheckoutInfo /></ProtectedPageRoute>} />
                 <Route path='/support' element={<Support />} />
               </Route>
             </Routes>
