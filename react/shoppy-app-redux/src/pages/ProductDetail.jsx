@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import { PiGiftThin } from 'react-icons/pi';
 import { ImageList } from '../components/commons/ImageList.jsx';
@@ -7,15 +7,13 @@ import { Detail } from '../components/detailTabs/Detail.jsx';
 import { Review } from '../components/detailTabs/Review.jsx';
 import { QnA } from '../components/detailTabs/QnA.jsx'
 import { Return } from '../components/detailTabs/Return.jsx'
-import { useCart } from '../hooks/useCart.js';
 import { useProduct } from '../hooks/useProduct.js';
 import { ProductContext } from '../context/ProductContext.js';
 import { useDispatch } from 'react-redux';
-import { addCartItem } from '../feature/cart/cartSlice.js';
+import { addCart } from '../feature/cart/cartAPI.js';
 
 export function ProductDetail() {
     const dispatch = useDispatch();
-    const {addCart} = useCart();
     const {filterProduct} = useProduct();
     const {product, imgList} = useContext(ProductContext);
 
@@ -38,7 +36,7 @@ export function ProductDetail() {
             qty: 1
         }
         // addCart(cartItem);
-        dispatch(addCartItem({cartItem:cartItem}));
+        dispatch(addCart(cartItem));   //addCart 호출 시 dispatch 전송!!
     }
 
     return (

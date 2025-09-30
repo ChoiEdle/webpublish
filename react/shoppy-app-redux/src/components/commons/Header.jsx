@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import { FiShoppingBag } from "react-icons/fi";
 import { GiShoppingCart } from "react-icons/gi";
 import { useContext } from "react";
-import { CartContext } from "../../context/CartContext.js";
 import { AuthContext } from "../../context/AuthContext.js";
 import { useAuth } from "../../hooks/useAuth.js";
 import { useSelector } from "react-redux";
@@ -10,10 +9,6 @@ import { useSelector } from "react-redux";
 
 export function Header() {
     const cartCount = useSelector((state)=>state.cart.cartCount);
-    const cartList = useSelector((state)=>state.cart.cartList);
-    console.log(cartList);
-    
-    // const {cartCount} = useContext(CartContext);
     const {isLogin} = useContext(AuthContext);
     const {handleLogout} = useAuth();
 
