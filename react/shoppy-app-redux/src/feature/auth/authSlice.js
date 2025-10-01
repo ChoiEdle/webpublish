@@ -9,13 +9,13 @@ export const authSlice = createSlice({
     initialState,
     reducers: {
         login(state, action) {
-            state.isLogin = !state.isLogin;
+            state.isLogin = !false;
             const {userId} = action.payload;
             const loginInfo = {"token": "dkanrjsk123", "userId": userId};
             localStorage.setItem("loginInfo", JSON.stringify(loginInfo));
         },
         logout(state, action) {
-            state.isLogin = !state.isLogin;
+            state.isLogin = !true;
             localStorage.removeItem("loginInfo");
         }
     },
