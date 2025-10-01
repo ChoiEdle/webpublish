@@ -2,11 +2,11 @@ import { useRef, useState, useContext } from "react";
 import { FaRegUser } from "react-icons/fa6";
 import { FaLock } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
-import { validateFormCheck2 } from "../utils/validate.js";
-import { useAuth } from "../hooks/useAuth.js";
+import { useDispatch } from "react-redux";
+import { getLogin } from "../feature/auth/authAPI.js";
 
 export function Login() {
-    const {handleLogin} = useAuth();
+    const dispatch = useDispatch();
     const navigate = useNavigate();
     const [formData, setFormData] = useState({id:'',pwd:''});
     const [errors, setErrors] = useState({id:"", pwd:""})
@@ -27,18 +27,14 @@ export function Login() {
             setErrors:setErrors,
             errors:errors
         }
-        if(validateFormCheck2(param)) {
-            console.log('서버전송 --> ', formData);
-            const did = "test";
-            const dpwd = "1234";
-            if(did === formData.id && dpwd === formData.pwd) {
-                handleLogin(formData.id);
-                alert("로그인에 성공하셨습니다.");
-                navigate("/");
-            } else {
-                alert("로그인에 실패하셨습니다. 확인후 다시 진행해주세요.");
-                idRef.current.focus();
-            }
+        const succ = dispatch(getLogin(formData, param));   //비동기식 처리
+        // console.log(isLogin);    //동기식 처리
+        if(succ) {
+            alert("로그인에 성공하셨습니다.");
+            navigate("/");
+        } else {
+            alert("로그인에 실패, 확인후 다시 진행해주세요.");
+            idRef.current.focus();
         }
     }
 

@@ -1,16 +1,13 @@
 import { Link } from "react-router-dom";
 import { FiShoppingBag } from "react-icons/fi";
 import { GiShoppingCart } from "react-icons/gi";
-import { useContext } from "react";
-import { AuthContext } from "../../context/AuthContext.js";
-import { useAuth } from "../../hooks/useAuth.js";
-import { useSelector } from "react-redux";
-
+import { useSelector, useDispatch } from "react-redux";
+import { getLogout } from "../../feature/auth/authAPI.js";
 
 export function Header() {
+    const dispatch = useDispatch();
     const cartCount = useSelector((state)=>state.cart.cartCount);
-    const {isLogin} = useContext(AuthContext);
-    const {handleLogout} = useAuth();
+    const isLogin = useSelector((state)=>state.auth.isLogin);
 
     return (
         <div className="header-outer">
@@ -26,7 +23,7 @@ export function Header() {
                         <span className="header-icons-cart">{cartCount}</span>
                     </Link>
                     {isLogin ? 
-                        <button type="button" onClick={handleLogout}>Logout</button>
+                        <button type="button" onClick={()=>{dispatch(getLogout())}}>Logout</button>
                         :
                         <Link to="/login">
                         <button type="button">Login</button>
