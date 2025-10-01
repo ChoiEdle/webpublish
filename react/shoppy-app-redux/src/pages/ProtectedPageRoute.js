@@ -1,10 +1,12 @@
 import React, { useContext, useRef } from 'react';
 import { Navigate } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext.js';
+import { useSelector } from 'react-redux';
 
 export function ProtectedPageRoute({children}) {
     const isAlert = useRef(false);
-    const { isLogin } = useContext(AuthContext);
+    const isLogin = useSelector((state)=>state.auth.isLogin);
+    // const { isLogin } = useContext(AuthContext);
 
     if(!isLogin) {
         if(!isAlert.current){

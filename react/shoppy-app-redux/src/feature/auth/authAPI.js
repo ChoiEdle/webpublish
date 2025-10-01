@@ -14,4 +14,5 @@ export const getLogin = (formData, param) => async(dispatch) => {
 
 export const getLogout = () => async(dispatch) => {
     dispatch(logout());
+    return true;
 }
