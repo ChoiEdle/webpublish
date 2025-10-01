@@ -28,6 +28,7 @@ export function Login() {
             errors:errors
         }
         const succ = dispatch(getLogin(formData, param));
+        // const succ = false;
         if(succ) {
             alert("로그인에 성공하셨습니다.");
             navigate("/");

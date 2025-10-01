@@ -11,7 +11,7 @@ export const getLogin = (formData, param) => async(dispatch) => {
             dispatch(login({"userId":formData.id}));
             return true;
         }
-        return false;
     }
+    return false;
 
 }
