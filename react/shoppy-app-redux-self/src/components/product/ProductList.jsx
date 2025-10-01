@@ -1,22 +1,19 @@
-import React, { useContext, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ProductAvatar } from './ProductAvatar.jsx';
-import { ProductContext } from '../../context/ProductContext.js';
-import { useProduct } from '../../hooks/useProduct.js';
+import { useDispatch, useSelector } from 'react-redux';
+import { showRows } from '../../feature/product/productAPI.js';
 
 export function ProductList() {
-    const {rows} = useContext(ProductContext);
-    const {showRows} = useProduct();
+    const dispatch = useDispatch();
+    const rows = useSelector((state)=>state.product.rows);
     const [number, setNumber] = useState(3);
     useEffect(()=>{
-        showRows(number);
+        dispatch(showRows(number));
     }, [number]);
     
     return (
         <div>
-            {/* {list && list.map(product => 
-                <ProductAvatar img={product.image} />
-                )}             */}
             {rows && rows.map((rowArray, idx) => 
                 <div className='product-list' key={idx}>
                     {rowArray && rowArray.map((product, idx) => 

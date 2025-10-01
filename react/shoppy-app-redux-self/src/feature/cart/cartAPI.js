@@ -1,8 +1,8 @@
 import { addCartItem, showCartItem, updateCartCount, updateTotalPrice, updateCartItem, removeCartItem } from "./cartSlice.js";
 import { axiosData } from "../../utils/dataFetch.js";
 
-export const addCart = (cartItem) => (dispatch) => {
-    dispatch(addCartItem({"cartItem":cartItem}));
+export const addCart = (pid, size) => (dispatch) => {
+    dispatch(addCartItem({"cartItem": {"pid":pid, "size":size, qty:1}}));
     dispatch(updateCartCount());
 }
 

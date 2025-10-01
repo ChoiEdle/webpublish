@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
+import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { PiGiftThin } from 'react-icons/pi';
 import { ImageList } from '../components/commons/ImageList.jsx';
@@ -7,15 +7,14 @@ import { Detail } from '../components/detailTabs/Detail.jsx';
 import { Review } from '../components/detailTabs/Review.jsx';
 import { QnA } from '../components/detailTabs/QnA.jsx'
 import { Return } from '../components/detailTabs/Return.jsx'
-import { useProduct } from '../hooks/useProduct.js';
-import { ProductContext } from '../context/ProductContext.js';
 import { addCart } from '../feature/cart/cartAPI.js';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { filterProduct } from '../feature/product/productAPI.js';
 
 export function ProductDetail() {
     const dispatch = useDispatch();
-    const {product, imgList} = useContext(ProductContext);
-    const {filterProduct} = useProduct();
+    const product = useSelector((state)=>state.product.product);
+    const imgList = product.imgList;
     
     const {pid} = useParams();
     const [size, setSize] = useState('XS');
@@ -24,7 +23,7 @@ export function ProductDetail() {
     const tabEventNames = ['detail', 'review', 'qna', 'return'];
 
     useEffect(() => {
-        filterProduct(pid);
+        dispatch(filterProduct(pid));
     }, []);   
     // console.log(product);
     
@@ -32,12 +31,7 @@ export function ProductDetail() {
     //쇼핑백 추가하기 함수
     const handleAddCartItem = () => {
         alert("상품이 카트에 추가되었습니다.");
-        const cartItem = {
-            pid : product.pid,
-            size : size,
-            qty: 1
-        }
-        dispatch(addCart(cartItem));
+        dispatch(addCart(product.pid, size));
     }
 
     return (
