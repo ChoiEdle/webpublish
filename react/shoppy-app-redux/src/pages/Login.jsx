@@ -29,7 +29,7 @@ export function Login() {
         }
         // Promise {<fulfilled>: false}[[Prototype]]: Promise[[PromiseState]]: "fulfilled"[[PromiseResult]]: false
         const succ = dispatch(getLogin(formData, param));   //비동기식 처리
-        console.log(succ);    //동기식 처리
+        // console.log(succ);    //동기식 처리
         if(succ) {
             alert("로그인에 성공하셨습니다.");
             navigate("/");
